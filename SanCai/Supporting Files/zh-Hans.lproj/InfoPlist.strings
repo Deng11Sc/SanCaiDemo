@@ -1,0 +1,100 @@
+
+CFBundleDisplayName = "识别助手";
+
+
+"Querying mode" = "正在查询模式";
+
+///tabbar文字
+"Find" = "发现";
+"Forum" = "论坛";
+"Center" = "个人中心";
+"Setting" = "设置";
+"Clear Cache" = "缓存清理";
+"Upload to cloud" = "上传到云";
+"About App" = "关于我们";
+
+//
+"Cloud sync" = "云同步";
+
+
+"Edit" = "编辑";
+"Save" = "保存";
+"Merge" = "合并";
+"Delete" = "删除";
+"Previous" = "上一步";
+"Reset" = "初始化";
+
+
+"Re-photographed" = "重拍";
+"Start recognize" = "开始识别";
+"Re-identify" = "重新识别";
+
+//空白页提示文字
+"You have not yet identified records" = "没有识别记录呢";
+"Please enter the complete information" = "请输入完整的信息";
+
+
+//AlertController
+ "Only clear images" = "仅清理图片";
+"Only clear identified records" = "仅清理识别记录";
+"Clear all" = "全部清理";
+"Cancel" = "取消";
+"YES" = "确定";
+"Modify" = "修改";
+"Register" = "注册";
+"This account is not registered, is registered?" = "这个帐号未注册，是否注册";
+
+"Please enter the password" = "请输入密码";
+"Please confirm your password" = "请确认密码";
+"Please enter account number" = "请输入账号";
+"Inconsistent password" = "密码不一致";
+"Succeeded" = "注册成功";
+"Register failure" = "注册失败";
+"Sign out" = "退出登录";
+"Login failed" = "登录失败";
+"Wrong password" = "密码错误";
+"Please log in first" = "请先登录";
+
+"OCR" = "文字识别";
+"Single" = "单图识别";
+"Multiple" = "多图识别";
+"Identify Records" = "识别记录";
+"Recording..." = "文字识别中...";
+"Record failure.Please check your network" = "无法识别文字，请检查当前网络后重试。";
+"Sorry,Record failure.Please,please retry" = "抱歉，无法识别文字，请重试";
+
+///渲染图片处理
+"Can only take up to 9 pictures" = "最多只能拍9张照片";
+"Finish" = "完成";
+"Delete photos when you let go" = "松手删除照片";
+"Original" = "原图";
+"Rendering 1" = "情深意切";
+"Rendering 2" = "经典黑白";
+"Rendering 3" = "格子时光";
+"Rendering 4" = "生如夏花";
+"Rendering 5" = "青城之恋";
+"Rendering 6" = "浅唱青春";
+"Rendering 7" = "时过境迁";
+"Rendering 8" = "情深意切";
+
+
+
+
+////提示文字
+"1,Click the \"OCR\" button at the top left to enter the text recognition.\n\n" = "1,点击左上方的\"文字识别\"按钮进入文字识别按钮\n\n";
+"2,Optional single image recognition or multiple images continuous identification.\n\n" = "2,可选单图识别或者多图连续识别\n\n";
+"3,This page will be returned after recognition.\n\n" = "3,识别结束后将返回本页面\n\n";
+"4,Remember to click the save button at the top right, otherwise the recognition record will not be saved.\n\n" = "4,记得点击右上方的保存按钮，否则不保存这次识别记录\n\n";
+
+"1,Application methods of this App: Click the button \"OCR\" on the top right of the first page to enter the identification interface. There are two ways to identify: \na. Take a single photo or select a gallery photo, then cut out the text area that needs to be recognized. \nb. Switch to multiple images to take multiple pictures at a time, and the pictures can be cropped. The system will recognize the pictures in turn.\n" = "1，本App使用方法：点击第一页的右上方按钮“OCR”进入识别界面，识别包含两种方式：\n    a,拍摄单张照片或者选择图库照片，裁剪需要识别的文字区域进行识别\n    b，切换到多张图片，一次性拍多张图片，图片可进行裁剪，系统将会依次识别图片\n";
+"2,The result of each recognition will be saved in the \"recognition records\", not saved in the server, please delete carefully. In \"recognition records\", records can be classified.\n" = "2，每次识别的结果将保存在“识别记录”内，不保存在服务器，请务必慎重删除。在“识别记录”里，能将记录分类\n";
+
+
+///定向纠正是指：手动提高识别精确度
+"3,In the future, many new features will be added, such as recognition results directional correction (key points), such as classification, rhyme recording management, and roof placement, etc. Stay tuned.\n" = "3，未来将添加许多新的功能，比如识别结果定向纠正（划重点），比如分类、云记录管理、置顶等，比如彩票识别独立入口等。敬请期待\n";
+"4,If you have any comments, please click on the button below and the author will collect your thumb up. If the number of users is sufficient, there will be a mystery prize and new function.\n" = "4，如果您有什么意见，麻烦您在下方的按钮点个赞，作者将收集您的点赞，若用户数足够，会有神秘大奖和新功能哦\n";
+"5,Contact author: confidentiality.\n" = "5，联系作者：保密\n";
+"6,The right of final interpretation of this App belongs to me.\n" = "6，本App最终解释权归本人所有。\n";
+
+
+
