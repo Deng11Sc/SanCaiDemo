@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "dy_expected_list.h"
 
 @interface DYExpectedItem : UICollectionViewCell
+
+@property (nonatomic,strong)dy_expected_list *listModel;
 
 @end

@@ -17,14 +17,6 @@
 
 @implementation UIViewController(AVOSCloud)
 
--(void)_initOSCloudServers
-{
-    [AVOSCloud setApplicationId:@"7YEy5Uoc3UG8xRifE6gRVKp7-gzGzoHsz" clientKey:@"Mc5uwS1LjXgpJkMOXr0Ke4No"];
-    [AVOSCloud setAllLogsEnabled:NO];
-    
-}
-
-
 /*
  // 获取三个特殊属性
  NSString *objectId = object.objectId;

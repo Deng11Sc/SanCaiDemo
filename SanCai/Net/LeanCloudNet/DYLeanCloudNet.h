@@ -15,23 +15,23 @@ typedef NS_ENUM(NSInteger,DYLeanCloudError)
     DYLeanCloudErrorNotAllKey, //必要参数不足
 };
 
-typedef void (^successful)(NSDictionary *dic);
+typedef void (^successful)(NSMutableArray *array);
 typedef void (^failure)(DYLeanCloudError error);
 
 @interface DYLeanCloudNet : NSObject
 
 
 ///初始化leanCloud
--(void)_initOSCloudServers;
++(void)_initOSCloudServers;
 
 
 /*
  method:获取列表数据
- model:传继承于AVObject的model，继承于AVObject的写法和普通model并没什么不同
+ className:表名
  orderby:排序，传nil为默认orderByDescending的创建时间排序，其他请自行参照leanCloud官网进行修改
  limit:获取个数，传0则默认为20个
  */
--(void)getList:(id)model
++(void)getList:(NSString *)className
        orderby:(NSString *)orderby
          limit:(NSInteger)limit
        success:(successful)successful
@@ -43,7 +43,7 @@ typedef void (^failure)(DYLeanCloudError error);
  1,创建AVQuey --- AVQuery *query = [AVQuery queryWithClassName:表明，相当于url]
  2,设置查询条件 --- [query whereKey:@"userId" equalTo:用户userId具体值]
  */
--(void)findObjectWithQuery:(AVQuery *)query
++(void)findObjectWithQuery:(AVQuery *)query
                    success:(successful)successful
                    failure:(failure)faliure;
 
@@ -55,7 +55,7 @@ typedef void (^failure)(DYLeanCloudError error);
  className:需要保存在哪个表中，和常规情况下的url差不多的概念
  relationId:关联Id,一般我默认为关联用户的userId，用处自行探索
  */
--(void)saveObject:(id)model
++(void)saveObject:(id)model
          objectId:(NSString *)objectId
         className:(NSString *)className
        relationId:(NSString *)relationId

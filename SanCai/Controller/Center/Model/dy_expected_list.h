@@ -10,4 +10,11 @@
 
 @interface dy_expected_list : AVObject
 
+@property (nonatomic,strong)NSString *imageView;
+
+@property (nonatomic,strong)NSString *title;
+
+@property (nonatomic,strong)NSString *goodsId;
+
+
 @end

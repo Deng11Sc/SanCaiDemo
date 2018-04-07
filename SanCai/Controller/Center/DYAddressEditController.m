@@ -8,7 +8,14 @@
 
 #import "DYAddressEditController.h"
 
-@interface DYAddressEditController ()
+
+@interface DYAddressEditController ()\
+
+@property (nonatomic,strong)UITextField *nameTextField;
+
+@property (nonatomic,strong)UITextField *phoneTextField;
+
+@property (nonatomic,strong)UITextField *addrTextField;
 
 @end
 
@@ -17,21 +24,81 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self _initSubviews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)_initSubviews
+{
+    [self setNameField];
+    [self setPhoneField];
+    [self setAddrField];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setNameField {
+    UITextField *textField = [[UITextField alloc] init];
+    textField.backgroundColor = [UIColor whiteColor];
+    [textField dy_configure];
+    [self.view addSubview:textField];
+    
+    UILabel *label = [[UILabel alloc] init];
+    [label dy_configure];
+    label.frame = CGRectMake(0, 0, 70, 44);
+    label.text = [NSString stringWithFormat:@"  %@",DYLocalizedString(@"Name", @"姓名")];
+    textField.leftView = label;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(8);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(-8);
+        make.height.mas_equalTo(44);
+    }];
+    _nameTextField = textField;
 }
-*/
+
+-(void)setPhoneField {
+    UITextField *textField = [[UITextField alloc] init];
+    textField.backgroundColor = [UIColor whiteColor];
+    [textField dy_configure];
+    [self.view addSubview:textField];
+    
+    UILabel *label = [[UILabel alloc] init];
+    [label dy_configure];
+    label.frame = CGRectMake(0, 0, 70, 44);
+    label.text = [NSString stringWithFormat:@"  %@",DYLocalizedString(@"Phone", @"姓名")];
+    textField.leftView = label;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_nameTextField.mas_bottom).offset(0.5);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(-8);
+        make.height.mas_equalTo(44);
+    }];
+    _phoneTextField = textField;
+}
+
+-(void)setAddrField {
+    UITextField *textField = [[UITextField alloc] init];
+    textField.backgroundColor = [UIColor whiteColor];
+    [textField dy_configure];
+    [self.view addSubview:textField];
+    
+    UILabel *label = [[UILabel alloc] init];
+    [label dy_configure];
+    label.frame = CGRectMake(0, 0, 70, 44);
+    label.text = [NSString stringWithFormat:@"  %@",@"地址"];
+    textField.leftView = label;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_phoneTextField.mas_bottom).offset(0.5);
+        make.left.mas_equalTo(0);
+        make.right.mas_equalTo(-8);
+        make.height.mas_equalTo(44);
+    }];
+    _addrTextField = textField;
+}
 
 @end

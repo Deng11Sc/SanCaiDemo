@@ -326,5 +326,23 @@ static inline NSUInteger hexStrToInt(NSString *str) {
     
 }
 
+///随机头像
++(NSString *)randomHeaderImageUrl
+{
+    int random = arc4random()%10;
+    NSArray *arr = @[@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516765512350&di=0c8b63e73e626357f448da23552d2fbb&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201601%2F14%2F20160114161413_JZWyw.jpeg",
+                     @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516765512350&di=f1182dadea0062c57db9b7b6812535e2&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%253D580%2Fsign%3D3ddeda050df431adbcd243317b37ac0f%2F78b4599b033b5bb546831f6937d3d539b700bc55.jpg",
+                     @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516765512350&di=37b137fbf7d5d139d48d5b55a4fc883e&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3Db1e0b6dceb24b899de3c79305e041d59%2F0801ebc4b74543a91bfe66101c178a82b8011419.jpg",
+                     @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516765512349&di=d80aee91c07caae285d5fecfe3d47b93&imgtype=0&src=http%3A%2F%2Fwww.jf258.com%2Fuploads%2F2014-08-24%2F062136881.jpg",
+                     @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516765512347&di=00bf5916ad51ee51ae8030aff81c3bf0&imgtype=0&src=http%3A%2F%2Fimg.mp.sohu.com%2Fupload%2F20170801%2Fce2617fa1af4448e9d7da2b658e74dde_th.png",
+                     @"http://img2.woyaogexing.com/2018/01/21/ffaa4dfedc371e62!400x400_big.jpg",
+                     @"http://img2.woyaogexing.com/2018/01/21/b941e52e86203265!400x400_big.jpg",
+                     @"http://img2.woyaogexing.com/2018/01/21/38b6baf6bec5bd41!200x200.jpg",
+                     @"http://img2.woyaogexing.com/2018/01/21/83300d2d3244202a!400x400_big.jpg",
+                     @"http://img2.woyaogexing.com/2018/01/21/7086586b905ca064!400x400_big.jpg"
+                     ];
+    return arr[random];
+}
+
 
 @end

@@ -7,7 +7,12 @@
 //
 
 #import "DYBaseController.h"
+#import "DYWinningModel.h"
 
 @interface DYWinningDetailController : DYBaseController
+
+@property (nonatomic,strong)DYWinningModel *winModel;
+
+@property (nonatomic,strong)void (^isRefreshBlk)(BOOL refresh);
 
 @end

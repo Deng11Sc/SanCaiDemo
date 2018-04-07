@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYAddressModel.h"
 
 @interface DYAddressCell : UITableViewCell
+
+@property (nonatomic,strong)DYAddressModel *addrModel;
+
+
+@property (nonatomic,strong)void (^deleteBlk)(DYAddressModel *addrModel);
+
+@property (nonatomic,strong)void (^editBlk)(DYAddressModel *addrModel);
+
 
 @end

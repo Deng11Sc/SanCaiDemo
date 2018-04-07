@@ -10,4 +10,14 @@
 
 @interface DYWinningModel : AVObject
 
+@property (nonatomic,strong)NSString *objId;
+
+@property (nonatomic,strong)NSString *goodsDes;
+@property (nonatomic,strong)NSString *userId;
+@property (nonatomic,strong)NSString *goodsImageUrl;
+@property (nonatomic,strong)NSString *goodsName;
+
+
+@property (nonatomic,strong)NSString *address;
+
 @end

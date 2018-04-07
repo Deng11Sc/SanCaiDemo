@@ -39,4 +39,10 @@
 
 +(BOOL)isShowMJBContent;
 
+
+
+
+///随机头像
++(NSString *)randomHeaderImageUrl;
+
 @end

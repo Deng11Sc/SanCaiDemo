@@ -10,4 +10,13 @@
 
 @interface DYAddressModel : AVObject
 
+@property (nonatomic,strong)NSString *objId;
+
+@property (nonatomic,strong)NSString *address;
+
+@property (nonatomic,strong)NSString *receiveName;
+
+@property (nonatomic,strong)NSString *receivePhone;
+
+
 @end

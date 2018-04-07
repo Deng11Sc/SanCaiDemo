@@ -1,0 +1,18 @@
+platform :ios, '8.0'
+inhibit_all_warnings!
+
+target ‘SanCai’ do
+    pod 'IQKeyboardManager'
+    pod 'SDWebImage', '~>3.8'
+    pod 'Masonry'
+    pod 'FMDB'
+    pod 'MJExtension'
+    pod 'MJRefresh'
+    pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'AVOSCloud'               # 数据存储、短信、云引擎调用等基础服务模块
+    pod 'WebViewJavascriptBridge', git: 'https://github.com/HYC192/WebViewJavascriptBridge.git'
+    pod 'TOCropViewController', git: 'https://github.com/liu3619376/TOCropViewController.git'
+    pod 'JPush'
+
+
+end

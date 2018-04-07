@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DYWinningModel.h"
 
 @interface DYWinningCell : UITableViewCell
+
+@property (nonatomic,strong)DYWinningModel *winModel;
 
 @end

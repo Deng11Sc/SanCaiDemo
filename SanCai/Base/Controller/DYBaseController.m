@@ -119,12 +119,12 @@
             _tableView.sectionIndexTrackingBackgroundColor = [UIColor clearColor];
         }
         
-        //        if (@available(iOS 11.0, *)) {
-        //            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        //        } else {
-        //            // Fallback on earlier versions
-        //            self.automaticallyAdjustsScrollViewInsets = NO;
-        //        }
+        if (@available(iOS 11.0, *)) {
+            _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        } else {
+            // Fallback on earlier versions
+            self.automaticallyAdjustsScrollViewInsets = NO;
+        }
         _tableView.tableFooterView = [UIView new];
     }
     return _tableView;

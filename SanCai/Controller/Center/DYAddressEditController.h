@@ -8,6 +8,10 @@
 
 #import "DYBaseController.h"
 
+#import "DYAddressModel.h"
+
 @interface DYAddressEditController : DYBaseController
+
+@property (nonatomic,strong)DYAddressModel *addrModel;
 
 @end

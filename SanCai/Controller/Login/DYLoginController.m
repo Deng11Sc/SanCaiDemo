@@ -132,7 +132,6 @@
     
     ///退出按钮
     UIButton *cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cancelBtn dy_configure];
     [cancelBtn setImage:[UIImage imageNamed:@"icon_home_letter_lottery_cancel"] forState:UIControlStateNormal];
     cancelBtn.contentMode = UIViewContentModeScaleAspectFit;
     [cancelBtn addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];

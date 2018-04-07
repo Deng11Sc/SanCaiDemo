@@ -18,5 +18,12 @@
 
 @property (nonatomic,strong)NSString *sessionToken;
 
+///期望物品id
+@property (nonatomic,strong)NSString *goodsId;
+
+//期望物品名字
+@property (nonatomic,strong)NSString *goodsTitle;
+
+
 
 @end

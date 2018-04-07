@@ -33,4 +33,7 @@
 #define DY_Default_Avatar [UIImage imageNamed:@"default_avatar_round"]
 
 
+#define DY_PlaceholderImage [UIImage imageNamed:@"default_avatar_round"]
+
+
 #endif /* DYUIHeader_h */

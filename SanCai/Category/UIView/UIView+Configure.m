@@ -35,7 +35,10 @@
 
 -(void)dy_configure {
     self.titleLabel.font = [UIFont systemFontOfSize:14];
-    [self setTitleColor:mainColor forState:0];
+    [self setTitleColor:[UIColor whiteColor] forState:0];
+    self.backgroundColor = DY_CustomColor_2594D2;
+    [self.layer setCornerRadius:4];
+    self.clipsToBounds = YES;
 }
 
 @end

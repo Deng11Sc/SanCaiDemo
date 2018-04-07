@@ -7,6 +7,7 @@
 //
 
 #import "DYBaseController.h"
+#import "DYNavigationController.h"
 ///用户信息界面
 #import "DYLoginInfoManager.h"
 

@@ -10,9 +10,9 @@
 #import "AppDelegate+JPush.h"
 #import "DYNavigationController.h"
 
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 #import "DYTabbarController.h"
-
 
 ///数据库创建
 #import "NNSqliteHeader.h"
@@ -29,6 +29,11 @@
 
     [self JPush_application:application didFinishLaunchingWithOptions:launchOptions];
     
+    [DYLeanCloudNet _initOSCloudServers];
+    
+    
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

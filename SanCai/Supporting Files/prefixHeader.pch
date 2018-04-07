@@ -8,8 +8,75 @@
 
 #ifndef prefixHeader_pch
 #define prefixHeader_pch
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...) ;
+#endif
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+///
+#ifndef weakify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakify(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakify(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakify(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#ifndef strongify
+#if DEBUG
+#if __has_feature(objc_arc)
+#define strongify(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define strongify(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+#else
+#define strongify(object) try{} @finally{} __typeof__(object) object = block##_##object;
+#endif
+#endif
+#endif
+
+
+#define AVOSCloudId @"5a5c27eaa22b9d003f3b839e"
+#define SELF_USER_ID [[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo-objectId"]
+
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "UIImageView+WebCache.h"
+
+#import "DYHeader.h"
+#import "DYUIHeader.h"
+#import "UIView+Configure.h"
+#import "MBProgressHUD.h"
+#import <Masonry/Masonry.h>
+#import "UIView+Support.h"
+#import "NSObject+Warning.h"
+#import "UIResponder+Router.h"
+#import "NSString+Common.h"
+
+
+
+#import <AVOSCloud/AVOSCloud.h>
+
+#import "DYLeanCloudNet.h"
+#import "NSObject+FMDB.h"
+
+
+#define DYLocalizedString(key, comment) NSLocalizedStringFromTable(key,@"InfoPlist", comment)
+
+
+
 
 #endif /* prefixHeader_pch */

@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self _initOSCloudServers];
+    [DYLeanCloudNet _initOSCloudServers];
     
     //获取APP当前语言
     NSArray *languageArr = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];

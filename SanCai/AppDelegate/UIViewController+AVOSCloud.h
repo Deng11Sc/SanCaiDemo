@@ -10,8 +10,7 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 @interface UIViewController(AVOSCloud)
-///初始化AVOSCloud服务
--(void)_initOSCloudServers;
+
 
 -(void)getAVOSCloudTypeController;
 

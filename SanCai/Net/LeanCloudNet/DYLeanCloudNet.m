@@ -12,27 +12,26 @@
 
 @implementation DYLeanCloudNet
 
--(void)_initOSCloudServers
++(void)_initOSCloudServers
 {
-    [AVOSCloud setApplicationId:@"7YEy5Uoc3UG8xRifE6gRVKp7-gzGzoHsz" clientKey:@"Mc5uwS1LjXgpJkMOXr0Ke4No"];
+    [AVOSCloud setApplicationId:@"nobyVvi8Km3mSFvGpToTx9Xg-gzGzoHsz" clientKey:@"pHjoDo6kVlMcBK4XkerwMT4L"];
     [AVOSCloud setAllLogsEnabled:NO];
-    
 }
 
 
 /*
  method:获取列表数据
- model:传继承于AVObject的model，继承于AVObject的写法和普通model并没什么不同
+ className:表名
  orderby:排序，传nil为默认orderByDescending的创建时间排序，其他请自行参照leanCloud官网进行修改
  limit:获取个数，传0则默认为20个
  */
--(void)getList:(id)model
++(void)getList:(NSString *)className
        orderby:(NSString *)orderby
          limit:(NSInteger)limit
        success:(successful)successful
        failure:(failure)faliure
 {
-    AVQuery *query = (AVQuery *)[model query];
+    AVQuery *query = (AVQuery *)[AVQuery queryWithClassName:className];
     
     if (orderby) {
         [query orderByDescending:orderby];
@@ -48,12 +47,16 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
+            
+            NSMutableArray *dataArray = [[NSMutableArray alloc] init];
             for (AVObject *avObj in objects) {
                 NSDictionary *dic = [avObj objectForKey:@"localData"];
-                if (successful) {
-                    successful(dic);
-                }
+                [dataArray addObject:dic];
             }
+            if (successful) {
+                successful(dataArray);
+            }
+
         } else {
             if (faliure) {
                 faliure(DYLeanCloudErrorDefault);
@@ -69,17 +72,21 @@
  1,创建AVQuey --- AVQuery *query = [AVQuery queryWithClassName:表明，相当于url]
  2,设置查询条件 --- [query whereKey:@"userId" equalTo:用户userId具体值]
  */
--(void)findObjectWithQuery:(AVQuery *)query
++(void)findObjectWithQuery:(AVQuery *)query
                    success:(successful)successful
                    failure:(failure)faliure
 {
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
+            NSMutableArray *dataArray = [[NSMutableArray alloc] init];
             for (AVObject *avObj in objects) {
-                NSDictionary *dic = [avObj objectForKey:@"localData"];
-                if (successful) {
-                    successful(dic);
-                }
+                NSMutableDictionary *dic = [avObj objectForKey:@"localData"];
+                dic[@"objId"] = avObj[@"objectId"];
+                [dataArray addObject:dic];
+            }
+            if (successful) {
+                successful(dataArray);
             }
         } else {
             if (faliure) {
@@ -97,7 +104,7 @@
  className:需要保存在哪个表中，和常规情况下的url差不多的概念
  relationId:关联Id,一般我默认为关联用户的userId，用处自行探索
  */
--(void)saveObject:(id)model
++(void)saveObject:(id)model
          objectId:(NSString *)objectId
         className:(NSString *)className
        relationId:(NSString *)relationId
@@ -152,7 +159,7 @@
 }
 
 //获取model的其中一个key
--(NSString *)getKeyWithIvar:(Ivar)ivar {
++(NSString *)getKeyWithIvar:(Ivar)ivar {
     
     NSString *ivarName = [NSString stringWithUTF8String:ivar_getName(ivar)];
     
