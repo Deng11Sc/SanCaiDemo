@@ -32,8 +32,9 @@
     
     DYOcrMainController *mainVC = [[DYOcrMainController alloc] init];
     DYNavigationController *mainNav = [[DYNavigationController alloc] initWithRootViewController:mainVC];
-    mainVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_find"];
-    mainVC.tabBarItem.title = DYLocalizedString(@"Find", @"发现");
+    mainVC.tabBarItem.image = [UIImage imageNamed:@"tabbar_hot"];
+    mainVC.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_hot_highlight"];
+    mainVC.tabBarItem.title = DYLocalizedString(@"Hot", @"热门");
     _mainVC = mainVC;
     
     DYForumController *forumVC = [[DYForumController alloc] init];

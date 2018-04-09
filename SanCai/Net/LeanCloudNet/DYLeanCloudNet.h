@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import "DYLeanCloudUrl.h"
 
 typedef NS_ENUM(NSInteger,DYLeanCloudError)
 {

@@ -12,6 +12,10 @@
 		A42976392078865D00EDE4AF /* DYAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A42976382078865D00EDE4AF /* DYAddressCell.m */; };
 		A429763C2078890D00EDE4AF /* DYAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A429763B2078890D00EDE4AF /* DYAddressModel.m */; };
 		A456A41D2078F6630081DA92 /* DYAddressEditController.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A41C2078F6630081DA92 /* DYAddressEditController.m */; };
+		A456A420207A4E440081DA92 /* DYCenterListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A41E207A4E440081DA92 /* DYCenterListView.m */; };
+		A456A423207A4F760081DA92 /* DYCenterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A422207A4F760081DA92 /* DYCenterListCell.m */; };
+		A456A427207A57B10081DA92 /* DYFilmReviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A426207A57B10081DA92 /* DYFilmReviewModel.m */; };
+		A456A42A207A57BB0081DA92 /* DYFilmReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A428207A57BB0081DA92 /* DYFilmReviewCell.m */; };
 		A457575E207670EF0048179E /* SanCaiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A457575D207670EF0048179E /* SanCaiTests.m */; };
 		A4575769207670EF0048179E /* SanCaiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575768207670EF0048179E /* SanCaiUITests.m */; };
 		A457582A207671430048179E /* NSObject+NNMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575779207671410048179E /* NSObject+NNMethodSwizzling.m */; };
@@ -132,6 +136,15 @@
 		A429763B2078890D00EDE4AF /* DYAddressModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAddressModel.m; sourceTree = "<group>"; };
 		A456A41B2078F6630081DA92 /* DYAddressEditController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYAddressEditController.h; sourceTree = "<group>"; };
 		A456A41C2078F6630081DA92 /* DYAddressEditController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYAddressEditController.m; sourceTree = "<group>"; };
+		A456A41E207A4E440081DA92 /* DYCenterListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYCenterListView.m; sourceTree = "<group>"; };
+		A456A41F207A4E440081DA92 /* DYCenterListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYCenterListView.h; sourceTree = "<group>"; };
+		A456A421207A4F760081DA92 /* DYCenterListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYCenterListCell.h; sourceTree = "<group>"; };
+		A456A422207A4F760081DA92 /* DYCenterListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYCenterListCell.m; sourceTree = "<group>"; };
+		A456A425207A57B10081DA92 /* DYFilmReviewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYFilmReviewModel.h; sourceTree = "<group>"; };
+		A456A426207A57B10081DA92 /* DYFilmReviewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYFilmReviewModel.m; sourceTree = "<group>"; };
+		A456A428207A57BB0081DA92 /* DYFilmReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYFilmReviewCell.m; sourceTree = "<group>"; };
+		A456A429207A57BB0081DA92 /* DYFilmReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYFilmReviewCell.h; sourceTree = "<group>"; };
+		A456A42F207A5B5A0081DA92 /* DYLeanCloudUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYLeanCloudUrl.h; sourceTree = "<group>"; };
 		A4575741207670EF0048179E /* SanCai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanCai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4575759207670EF0048179E /* SanCaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SanCaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A457575D207670EF0048179E /* SanCaiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SanCaiTests.m; sourceTree = "<group>"; };
@@ -357,6 +370,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A456A424207A579B0081DA92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A456A425207A57B10081DA92 /* DYFilmReviewModel.h */,
+				A456A426207A57B10081DA92 /* DYFilmReviewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A4575738207670EF0048179E = {
 			isa = PBXGroup;
 			children = (
@@ -548,32 +570,19 @@
 		A45757AF207671410048179E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A456A424207A579B0081DA92 /* Model */,
+				A45757B4207671410048179E /* View */,
 				A45757B0207671410048179E /* DYOcrMainController.h */,
 				A45757B1207671410048179E /* DYOcrMainController.m */,
-				A45757B2207671410048179E /* OcrController */,
-				A45757B4207671410048179E /* View */,
 			);
 			path = Home;
-			sourceTree = "<group>";
-		};
-		A45757B2207671410048179E /* OcrController */ = {
-			isa = PBXGroup;
-			children = (
-				A45757B3207671410048179E /* Camera */,
-			);
-			path = OcrController;
-			sourceTree = "<group>";
-		};
-		A45757B3207671410048179E /* Camera */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Camera;
 			sourceTree = "<group>";
 		};
 		A45757B4207671410048179E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A456A429207A57BB0081DA92 /* DYFilmReviewCell.h */,
+				A456A428207A57BB0081DA92 /* DYFilmReviewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -843,6 +852,10 @@
 		A4575874207677E50048179E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A456A41F207A4E440081DA92 /* DYCenterListView.h */,
+				A456A41E207A4E440081DA92 /* DYCenterListView.m */,
+				A456A421207A4F760081DA92 /* DYCenterListCell.h */,
+				A456A422207A4F760081DA92 /* DYCenterListCell.m */,
 				A4575875207677E50048179E /* DYUserInfoHeaderView.h */,
 				A4575876207677E50048179E /* DYUserInfoHeaderView.m */,
 				A42976372078865D00EDE4AF /* DYAddressCell.h */,
@@ -858,6 +871,7 @@
 		A45EA1F92076FC390065E7B0 /* LeanCloudNet */ = {
 			isa = PBXGroup;
 			children = (
+				A456A42F207A5B5A0081DA92 /* DYLeanCloudUrl.h */,
 				A45EA1FA2076FC390065E7B0 /* DYLeanCloudNet.h */,
 				A45EA1FB2076FC390065E7B0 /* DYLeanCloudNet.m */,
 			);
@@ -1099,9 +1113,12 @@
 				A4575844207671430048179E /* DYLoginInfoManager.m in Sources */,
 				A457586D207671440048179E /* NNSqliteHeader.m in Sources */,
 				A457584C207671430048179E /* DYDetaillTextModel.m in Sources */,
+				A456A42A207A57BB0081DA92 /* DYFilmReviewCell.m in Sources */,
 				A4575851207671430048179E /* AppDelegate+JPush.m in Sources */,
 				A4575843207671430048179E /* DYLoginController.m in Sources */,
 				A457588820767C2E0048179E /* DYAboutUsController.m in Sources */,
+				A456A427207A57B10081DA92 /* DYFilmReviewModel.m in Sources */,
+				A456A423207A4F760081DA92 /* DYCenterListCell.m in Sources */,
 				A4575847207671430048179E /* DYNavigationController.m in Sources */,
 				A4575831207671430048179E /* UILabel+AttributeLabel.m in Sources */,
 				A429763C2078890D00EDE4AF /* DYAddressModel.m in Sources */,
@@ -1157,6 +1174,7 @@
 				A45EA200207701D90065E7B0 /* dy_expected_list.m in Sources */,
 				A45EA21720779C8C0065E7B0 /* DYWinningCell.m in Sources */,
 				A4575857207671430048179E /* NNShortPlayerView.m in Sources */,
+				A456A420207A4E440081DA92 /* DYCenterListView.m in Sources */,
 				A4575838207671430048179E /* NSMutableAttributedString+Link.m in Sources */,
 				A4575879207677E50048179E /* DYCenterController.m in Sources */,
 				A4575870207671440048179E /* DYWebTabbarView.m in Sources */,

@@ -17,13 +17,16 @@
 #import "DYGetRewardsController.h"
 #import "DYAboutUsController.h"
 
+#import "DYCenterListView.h"
 
-@interface DYCenterController ()
+
+@interface DYCenterController ()<DYCenterListViewDelegate>
 
 @property (nonatomic,strong)DYUserInfoHeaderView *headerView;
 
 @property (nonatomic,strong)UIView *logoutView;
 
+@property (nonatomic,strong)DYCenterListView *centerListView;
 
 @end
 
@@ -112,7 +115,6 @@
 
     [self.dataArray addObject:DYLocalizedString(@"My Winning", @"中奖纪录")];
     [self.dataArray addObject:DYLocalizedString(@"Expected items", @"期望物品")];
-    [self.dataArray addObject:DYLocalizedString(@"Get rewards", @"兑换奖励")];
     [self.dataArray addObject:DYLocalizedString(@"About App", @"关于我们")];
     
     [self.tableView reloadData];
@@ -168,6 +170,52 @@
     return 44.f;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return Height_centerList;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return self.centerListView;
+}
+
+-(DYCenterListView *)centerListView
+{
+    if (!_centerListView) {
+        DYCenterListView *listView = [[DYCenterListView alloc] init];
+        listView.frame = CGRectMake(0, 0, DY_Width, Height_centerList);
+        listView.delagate = self;
+        [self.view addSubview:listView];
+
+        NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:@[@{@"icon":@"icon_center_task",@"title":DYLocalizedString(@"Task", @"")},
+                                                                      @{@"icon":@"icon_center_shop",@"title":DYLocalizedString(@"Mall", @"")}]];
+        [listView initSubviewsWithDataArray:arr];
+        _centerListView = listView;
+    }
+    return _centerListView;
+}
+
+
+#pragma mark ----- listView代理方法
+- (void)didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+        {
+            
+        }
+            break;
+        case 1:
+        {
+            DYGetRewardsController *ctrl = [[DYGetRewardsController alloc] init];
+            [self.navigationController pushViewController:ctrl animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -187,16 +235,11 @@
         DYExpectedController *ctrl = [[DYExpectedController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
-    else if ([text isEqualToString:DYLocalizedString(@"Get rewards", @"兑换奖励")]) {
-        DYGetRewardsController *ctrl = [[DYGetRewardsController alloc] init];
-        [self.navigationController pushViewController:ctrl animated:YES];
-    }
     else if ([text isEqualToString:DYLocalizedString(@"About App", @"关于我们")]) {
         DYAboutUsController *ctrl = [[DYAboutUsController alloc] init];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
 
-    
 }
 
 

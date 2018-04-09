@@ -7,7 +7,7 @@ CFBundleDisplayName = "三采影视平台";
 "OK" = "确定";
 
 ///tabbar文字
-"Find" = "发现";
+"Hot" = "热门";
 "Forum" = "论坛";
 "Center" = "个人中心";
 "Setting" = "设置";
@@ -58,5 +58,8 @@ CFBundleDisplayName = "三采影视平台";
 "Name" = "姓名";
 "Phone" = "电话";
 "Address" = "地址";
+
+"Task" = "任务";
+"Mall" = "积分商城";
 
 
