@@ -16,6 +16,11 @@
 		A456A423207A4F760081DA92 /* DYCenterListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A422207A4F760081DA92 /* DYCenterListCell.m */; };
 		A456A427207A57B10081DA92 /* DYFilmReviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A426207A57B10081DA92 /* DYFilmReviewModel.m */; };
 		A456A42A207A57BB0081DA92 /* DYFilmReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A428207A57BB0081DA92 /* DYFilmReviewCell.m */; };
+		A456A432207AEF7A0081DA92 /* DYAboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A431207AEF7A0081DA92 /* DYAboutUsController.m */; };
+		A456A435207AEF980081DA92 /* DYAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A433207AEF980081DA92 /* DYAddressController.m */; };
+		A456A438207AEFB20081DA92 /* DYExpectedController.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A437207AEFB10081DA92 /* DYExpectedController.m */; };
+		A456A43B207AEFBF0081DA92 /* DYGetRewardsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A439207AEFBF0081DA92 /* DYGetRewardsController.m */; };
+		A456A43E207AEFCD0081DA92 /* DYWinningController.m in Sources */ = {isa = PBXBuildFile; fileRef = A456A43C207AEFCD0081DA92 /* DYWinningController.m */; };
 		A457575E207670EF0048179E /* SanCaiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A457575D207670EF0048179E /* SanCaiTests.m */; };
 		A4575769207670EF0048179E /* SanCaiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575768207670EF0048179E /* SanCaiUITests.m */; };
 		A457582A207671430048179E /* NSObject+NNMethodSwizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575779207671410048179E /* NSObject+NNMethodSwizzling.m */; };
@@ -91,11 +96,6 @@
 		A4575871207671440048179E /* VestMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575829207671430048179E /* VestMainController.m */; };
 		A4575878207677E50048179E /* DYUserInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575876207677E50048179E /* DYUserInfoHeaderView.m */; };
 		A4575879207677E50048179E /* DYCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4575877207677E50048179E /* DYCenterController.m */; };
-		A457587C20767AD60048179E /* DYAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = A457587B20767AD60048179E /* DYAddressController.m */; };
-		A457587F20767B200048179E /* DYWinningController.m in Sources */ = {isa = PBXBuildFile; fileRef = A457587E20767B200048179E /* DYWinningController.m */; };
-		A457588220767B2D0048179E /* DYExpectedController.m in Sources */ = {isa = PBXBuildFile; fileRef = A457588120767B2D0048179E /* DYExpectedController.m */; };
-		A457588520767B460048179E /* DYGetRewardsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A457588420767B460048179E /* DYGetRewardsController.m */; };
-		A457588820767C2E0048179E /* DYAboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = A457588720767C2E0048179E /* DYAboutUsController.m */; };
 		A45EA1F82076F8440065E7B0 /* DYExpectedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A45EA1F72076F8440065E7B0 /* DYExpectedItem.m */; };
 		A45EA1FC2076FC390065E7B0 /* DYLeanCloudNet.m in Sources */ = {isa = PBXBuildFile; fileRef = A45EA1FB2076FC390065E7B0 /* DYLeanCloudNet.m */; };
 		A45EA200207701D90065E7B0 /* dy_expected_list.m in Sources */ = {isa = PBXBuildFile; fileRef = A45EA1FF207701D90065E7B0 /* dy_expected_list.m */; };
@@ -145,6 +145,16 @@
 		A456A428207A57BB0081DA92 /* DYFilmReviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYFilmReviewCell.m; sourceTree = "<group>"; };
 		A456A429207A57BB0081DA92 /* DYFilmReviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYFilmReviewCell.h; sourceTree = "<group>"; };
 		A456A42F207A5B5A0081DA92 /* DYLeanCloudUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYLeanCloudUrl.h; sourceTree = "<group>"; };
+		A456A430207AEF7A0081DA92 /* DYAboutUsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYAboutUsController.h; sourceTree = "<group>"; };
+		A456A431207AEF7A0081DA92 /* DYAboutUsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYAboutUsController.m; sourceTree = "<group>"; };
+		A456A433207AEF980081DA92 /* DYAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYAddressController.m; sourceTree = "<group>"; };
+		A456A434207AEF980081DA92 /* DYAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYAddressController.h; sourceTree = "<group>"; };
+		A456A436207AEFB10081DA92 /* DYExpectedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYExpectedController.h; sourceTree = "<group>"; };
+		A456A437207AEFB10081DA92 /* DYExpectedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYExpectedController.m; sourceTree = "<group>"; };
+		A456A439207AEFBF0081DA92 /* DYGetRewardsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYGetRewardsController.m; sourceTree = "<group>"; };
+		A456A43A207AEFBF0081DA92 /* DYGetRewardsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYGetRewardsController.h; sourceTree = "<group>"; };
+		A456A43C207AEFCD0081DA92 /* DYWinningController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYWinningController.m; sourceTree = "<group>"; };
+		A456A43D207AEFCD0081DA92 /* DYWinningController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYWinningController.h; sourceTree = "<group>"; };
 		A4575741207670EF0048179E /* SanCai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanCai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4575759207670EF0048179E /* SanCaiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SanCaiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A457575D207670EF0048179E /* SanCaiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SanCaiTests.m; sourceTree = "<group>"; };
@@ -298,16 +308,6 @@
 		A4575875207677E50048179E /* DYUserInfoHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYUserInfoHeaderView.h; sourceTree = "<group>"; };
 		A4575876207677E50048179E /* DYUserInfoHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYUserInfoHeaderView.m; sourceTree = "<group>"; };
 		A4575877207677E50048179E /* DYCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYCenterController.m; sourceTree = "<group>"; };
-		A457587A20767AD60048179E /* DYAddressController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DYAddressController.h; path = ../../../../../../../Documents/DYAddressController.h; sourceTree = "<group>"; };
-		A457587B20767AD60048179E /* DYAddressController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DYAddressController.m; path = ../../../../../../../Documents/DYAddressController.m; sourceTree = "<group>"; };
-		A457587D20767B200048179E /* DYWinningController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DYWinningController.h; path = ../../../../../../../Documents/DYWinningController.h; sourceTree = "<group>"; };
-		A457587E20767B200048179E /* DYWinningController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DYWinningController.m; path = ../../../../../../../Documents/DYWinningController.m; sourceTree = "<group>"; };
-		A457588020767B2D0048179E /* DYExpectedController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DYExpectedController.h; path = ../../../../../../../Documents/DYExpectedController.h; sourceTree = "<group>"; };
-		A457588120767B2D0048179E /* DYExpectedController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DYExpectedController.m; path = ../../../../../../../Documents/DYExpectedController.m; sourceTree = "<group>"; };
-		A457588320767B460048179E /* DYGetRewardsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DYGetRewardsController.h; path = ../../../../../../../Documents/DYGetRewardsController.h; sourceTree = "<group>"; };
-		A457588420767B460048179E /* DYGetRewardsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DYGetRewardsController.m; path = ../../../../../../../Documents/DYGetRewardsController.m; sourceTree = "<group>"; };
-		A457588620767C2E0048179E /* DYAboutUsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DYAboutUsController.h; path = ../../../../../../../Documents/DYAboutUsController.h; sourceTree = "<group>"; };
-		A457588720767C2E0048179E /* DYAboutUsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DYAboutUsController.m; path = ../../../../../../../Documents/DYAboutUsController.m; sourceTree = "<group>"; };
 		A45EA1F62076F8440065E7B0 /* DYExpectedItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DYExpectedItem.h; sourceTree = "<group>"; };
 		A45EA1F72076F8440065E7B0 /* DYExpectedItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DYExpectedItem.m; sourceTree = "<group>"; };
 		A45EA1FA2076FC390065E7B0 /* DYLeanCloudNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYLeanCloudNet.h; sourceTree = "<group>"; };
@@ -532,20 +532,20 @@
 				A4575874207677E50048179E /* View */,
 				A4575873207677E50048179E /* DYCenterController.h */,
 				A4575877207677E50048179E /* DYCenterController.m */,
-				A457587A20767AD60048179E /* DYAddressController.h */,
-				A457587B20767AD60048179E /* DYAddressController.m */,
+				A456A434207AEF980081DA92 /* DYAddressController.h */,
+				A456A433207AEF980081DA92 /* DYAddressController.m */,
 				A456A41B2078F6630081DA92 /* DYAddressEditController.h */,
 				A456A41C2078F6630081DA92 /* DYAddressEditController.m */,
-				A457587D20767B200048179E /* DYWinningController.h */,
-				A457587E20767B200048179E /* DYWinningController.m */,
+				A456A43D207AEFCD0081DA92 /* DYWinningController.h */,
+				A456A43C207AEFCD0081DA92 /* DYWinningController.m */,
 				A4297630207874DF00EDE4AF /* DYWinningDetailController.h */,
 				A4297631207874DF00EDE4AF /* DYWinningDetailController.m */,
-				A457588020767B2D0048179E /* DYExpectedController.h */,
-				A457588120767B2D0048179E /* DYExpectedController.m */,
-				A457588320767B460048179E /* DYGetRewardsController.h */,
-				A457588420767B460048179E /* DYGetRewardsController.m */,
-				A457588620767C2E0048179E /* DYAboutUsController.h */,
-				A457588720767C2E0048179E /* DYAboutUsController.m */,
+				A456A436207AEFB10081DA92 /* DYExpectedController.h */,
+				A456A437207AEFB10081DA92 /* DYExpectedController.m */,
+				A456A43A207AEFBF0081DA92 /* DYGetRewardsController.h */,
+				A456A439207AEFBF0081DA92 /* DYGetRewardsController.m */,
+				A456A430207AEF7A0081DA92 /* DYAboutUsController.h */,
+				A456A431207AEF7A0081DA92 /* DYAboutUsController.m */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -1110,13 +1110,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4575852207671430048179E /* AppDelegate.m in Sources */,
+				A456A43E207AEFCD0081DA92 /* DYWinningController.m in Sources */,
 				A4575844207671430048179E /* DYLoginInfoManager.m in Sources */,
 				A457586D207671440048179E /* NNSqliteHeader.m in Sources */,
 				A457584C207671430048179E /* DYDetaillTextModel.m in Sources */,
 				A456A42A207A57BB0081DA92 /* DYFilmReviewCell.m in Sources */,
 				A4575851207671430048179E /* AppDelegate+JPush.m in Sources */,
 				A4575843207671430048179E /* DYLoginController.m in Sources */,
-				A457588820767C2E0048179E /* DYAboutUsController.m in Sources */,
 				A456A427207A57B10081DA92 /* DYFilmReviewModel.m in Sources */,
 				A456A423207A4F760081DA92 /* DYCenterListCell.m in Sources */,
 				A4575847207671430048179E /* DYNavigationController.m in Sources */,
@@ -1127,10 +1127,10 @@
 				A4575868207671430048179E /* NNCameraManager.m in Sources */,
 				A457584F207671430048179E /* DYUserInfoModel.m in Sources */,
 				A4575865207671430048179E /* TZProgressView.m in Sources */,
-				A457588520767B460048179E /* DYGetRewardsController.m in Sources */,
 				A4575859207671430048179E /* NSBundle+TZImagePicker.m in Sources */,
 				A4575862207671430048179E /* TZPhotoPickerController.m in Sources */,
 				A4575846207671430048179E /* DYBaseController.m in Sources */,
+				A456A43B207AEFBF0081DA92 /* DYGetRewardsController.m in Sources */,
 				A4575858207671430048179E /* NNVideoPreviewController.m in Sources */,
 				A457585D207671430048179E /* TZImageCropManager.m in Sources */,
 				A457582E207671430048179E /* UIImage+Common.m in Sources */,
@@ -1138,6 +1138,7 @@
 				A45EA1F82076F8440065E7B0 /* DYExpectedItem.m in Sources */,
 				A4575836207671430048179E /* NSMutableAttributedString+FrameRef.m in Sources */,
 				A457582B207671430048179E /* NSObject+Warning.m in Sources */,
+				A456A438207AEFB20081DA92 /* DYExpectedController.m in Sources */,
 				A4575878207677E50048179E /* DYUserInfoHeaderView.m in Sources */,
 				A4575830207671430048179E /* UIButton+Common.m in Sources */,
 				A45EA1FC2076FC390065E7B0 /* DYLeanCloudNet.m in Sources */,
@@ -1146,19 +1147,16 @@
 				A457583F207671430048179E /* ZYAttributedLink.m in Sources */,
 				A4575863207671430048179E /* TZPhotoPreviewCell.m in Sources */,
 				A4575841207671430048179E /* DYForumController.m in Sources */,
-				A457588220767B2D0048179E /* DYExpectedController.m in Sources */,
 				A457584B207671430048179E /* main.m in Sources */,
 				A4575853207671430048179E /* UIViewController+AVOSCloud.m in Sources */,
 				A4575856207671430048179E /* NNImageEditObject.m in Sources */,
 				A4575837207671430048179E /* NSMutableAttributedString+Image.m in Sources */,
 				A4575845207671430048179E /* DYTabbarController.m in Sources */,
-				A457587F20767B200048179E /* DYWinningController.m in Sources */,
 				A456A41D2078F6630081DA92 /* DYAddressEditController.m in Sources */,
 				A4297632207874DF00EDE4AF /* DYWinningDetailController.m in Sources */,
 				A457583A207671430048179E /* UIView+frameAdjust.m in Sources */,
 				A457583B207671430048179E /* ZYAttributedImage.m in Sources */,
 				A45EA20E20773BF00065E7B0 /* DYInputTextField.m in Sources */,
-				A457587C20767AD60048179E /* DYAddressController.m in Sources */,
 				A4575832207671430048179E /* UIView+Configure.m in Sources */,
 				A4575866207671430048179E /* TZVideoPlayerController.m in Sources */,
 				A457586B207671430048179E /* NNMediaTool.m in Sources */,
@@ -1168,6 +1166,7 @@
 				A457582C207671430048179E /* NSString+Common.m in Sources */,
 				A4575871207671440048179E /* VestMainController.m in Sources */,
 				A4575864207671430048179E /* TZPhotoPreviewController.m in Sources */,
+				A456A432207AEF7A0081DA92 /* DYAboutUsController.m in Sources */,
 				A4575839207671430048179E /* UIImageView+GIF.m in Sources */,
 				A457584D207671430048179E /* DYOcrEditModel.m in Sources */,
 				A457585E207671430048179E /* TZImageManager.m in Sources */,
@@ -1175,6 +1174,7 @@
 				A45EA21720779C8C0065E7B0 /* DYWinningCell.m in Sources */,
 				A4575857207671430048179E /* NNShortPlayerView.m in Sources */,
 				A456A420207A4E440081DA92 /* DYCenterListView.m in Sources */,
+				A456A435207AEF980081DA92 /* DYAddressController.m in Sources */,
 				A4575838207671430048179E /* NSMutableAttributedString+Link.m in Sources */,
 				A4575879207677E50048179E /* DYCenterController.m in Sources */,
 				A4575870207671440048179E /* DYWebTabbarView.m in Sources */,
