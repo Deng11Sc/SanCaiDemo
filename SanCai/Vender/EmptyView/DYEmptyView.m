@@ -12,7 +12,7 @@
 #define SizeScale ((IPHONE_HEIGHT == 568) ? 0.66 : 1)
 
 
-@implementation DYEmptyView
+@implementation DY_EmptyView
 
 - (instancetype)initWithTitle:(NSString *)title imageName:(NSString *)imageName top:(CGFloat)top width:(CGFloat)width
 {

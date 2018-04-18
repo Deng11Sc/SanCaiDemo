@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DYEmptyView : UIView
+@interface DY_EmptyView : UIView
 
 @property (nonatomic ,strong) UIImageView *imageView;
 //没有本地的媒体推送信息时的文案

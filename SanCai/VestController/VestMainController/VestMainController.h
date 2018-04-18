@@ -6,9 +6,9 @@
 //  Copyright © 2018年 SongChang. All rights reserved.
 //
 
-#import "DYBaseController.h"
+#import "DY_BaseController.h"
 
-@interface VestMainController : DYBaseController
+@interface VestMainController : DY_BaseController
 
 @property (nonatomic,strong)NSString *urlStr;
 

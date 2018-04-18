@@ -1,6 +1,24 @@
 
-DYWinningModel ---- dy_winning_list
+DY_WinningModel ---- dy_winning_list
 
-dy_expected_list --- dy_expected_list
+DY__expected_list --- DY__expected_list
 
-DYAddressModel ---- dy_address_list
+DY_AddressModel ---- dy_address_list
+
+
+
+
+
+
+
+
+
+任务类型id
+0 - 启动App
+1 - 签到
+2 - 查看影评
+3 - 查看电影介绍
+100 - 期望列表
+101 - 进入地址
+102 - 进入奖品列表
+103 - 商品列表

@@ -48,7 +48,7 @@
 #endif
 
 
-#define AVOSCloudId @"5a5c27eaa22b9d003f3b839e"
+#define AVOSCloudId @"5ac868f54773f7005d7590e3"
 #define SELF_USER_ID [[NSUserDefaults standardUserDefaults] objectForKey:@"userinfo-objectId"]
 
 
@@ -71,7 +71,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-#import "DYLeanCloudNet.h"
+#import "DY_LeanCloudNet.h"
 #import "NSObject+FMDB.h"
 
 

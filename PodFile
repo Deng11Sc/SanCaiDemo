@@ -13,6 +13,6 @@ target ‘SanCai’ do
     pod 'WebViewJavascriptBridge', git: 'https://github.com/HYC192/WebViewJavascriptBridge.git'
     pod 'TOCropViewController', git: 'https://github.com/liu3619376/TOCropViewController.git'
     pod 'JPush'
-
+    pod 'AliyunOSSiOS'
 
 end

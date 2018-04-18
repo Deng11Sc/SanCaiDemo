@@ -8,14 +8,22 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+JPush.h"
-#import "DYNavigationController.h"
+#import "DY_NavigationController.h"
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
-#import "DYTabbarController.h"
+#import "DY_TabbarController.h"
 
 ///数据库创建
 #import "NNSqliteHeader.h"
+///任务管理器
+#import "DY_TaskManager.h"
+
+///这里引用是用来判断当前页面的
+#import "UIViewController+AVOSCloud.h"
+#import "DY_LoginController.h"
+#import "DY_RegistController.h"
+
 
 @interface AppDelegate ()
 
@@ -26,10 +34,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    
+    //极光推送注册
     [self JPush_application:application didFinishLaunchingWithOptions:launchOptions];
     
-    [DYLeanCloudNet _initOSCloudServers];
+    //leanCloud注册
+    [DY_LeanCloudNet _initOSCloudServers];
+    
+    //跳转登录页面通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentLoginViewController) name:@"presentLoginViewController" object:nil];
+
+    
     
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
@@ -39,17 +54,43 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     
-    DYTabbarController *tabbarCtrl = [[DYTabbarController alloc] init];
+    DY_TabbarController *tabbarCtrl = [[DY_TabbarController alloc] init];
     self.window.rootViewController = tabbarCtrl;
     [self.window makeKeyAndVisible];
 
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [NNSqliteHeader init_sql];
+        
+        [[DY_TaskManager manager] getUserTaskData_successBlk:^(NSMutableArray<DY_TasksModel *> *dataArray) {
+            [self finishTask];
+        }];
     });
 
     return YES;
 }
+
+-(void)finishTask {
+    
+    [[DY_TaskManager manager] increaseScoresByTaskType:@"0"];
+    
+}
+
+-(void)presentLoginViewController {
+    
+    if ([[UIViewController getCurrentVC] isKindOfClass:[DY_LoginController class]] ||
+        [[UIViewController getCurrentVC] isKindOfClass:[DY_RegistController class]]) {
+        
+    } else {
+        DY_LoginController *loginVC = [[DY_LoginController alloc] init];
+        DY_NavigationController *loginNav = [[DY_NavigationController alloc] initWithRootViewController:loginVC];
+        
+        [self.window.rootViewController presentViewController:loginNav animated:YES completion:nil];
+    }
+    
+}
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -71,6 +112,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 
@@ -111,6 +153,7 @@
         //ios9以下的如需处理在这里用低版本API处理
     }
 }
+
 
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {

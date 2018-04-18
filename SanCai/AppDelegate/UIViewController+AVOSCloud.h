@@ -12,6 +12,10 @@
 @interface UIViewController(AVOSCloud)
 
 
--(void)getAVOSCloudTypeController;
++(void)getAVOSCloudTypeController;
+
+//获取当前屏幕显示的viewcontroller
++ (UIViewController *)getCurrentVC;
+
 
 @end

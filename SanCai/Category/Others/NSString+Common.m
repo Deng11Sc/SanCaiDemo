@@ -9,6 +9,7 @@
 #import "NSString+Common.h"
 #import "NSString+NNPath.h"
 
+
 @implementation NSString(Common)
 
 + (BOOL)isEmptyString:(NSString *)text{
@@ -315,7 +316,7 @@ static inline NSUInteger hexStrToInt(NSString *str) {
     //2018-04-03 10:28:33 UTC 时间戳为1522751373
     //一天的时间戳+86400，
     
-    long showTime = 1522751373+86400*10;
+    long showTime = 1522751373+86400*0;
     
     if ([date2 longLongValue] > showTime) {
         return YES;
@@ -343,6 +344,7 @@ static inline NSUInteger hexStrToInt(NSString *str) {
                      ];
     return arr[random];
 }
+
 
 
 @end

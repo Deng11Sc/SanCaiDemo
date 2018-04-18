@@ -76,7 +76,7 @@ static UILabel *_shareTip = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         UILabel *label = [[UILabel alloc] init];
-        label.numberOfLines = 1;
+        label.numberOfLines = 2;
         label.font = [UIFont systemFontOfSize:12];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor whiteColor];
@@ -99,13 +99,15 @@ static BOOL _isShow = YES;
     
     _isShow = NO;
     UILabel *tipLabel = [self shareTip];
+    tipLabel.font = [UIFont systemFontOfSize:16];
+    tipLabel.backgroundColor = kUIColorFromRGB_Alpa(0x535353, 0.8);
     tipLabel.text = tip;
     [DY_KeyWindow addSubview:tipLabel];
     
     CGSize size = [tipLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, 24)];
     [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.centerY.equalTo(DY_KeyWindow);
-        make.height.mas_equalTo(24);
+        make.height.mas_equalTo(44);
         make.width.mas_equalTo(size.width+16);
     }];
     

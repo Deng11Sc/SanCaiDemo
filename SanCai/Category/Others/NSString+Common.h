@@ -45,4 +45,6 @@
 ///随机头像
 +(NSString *)randomHeaderImageUrl;
 
+
 @end
+

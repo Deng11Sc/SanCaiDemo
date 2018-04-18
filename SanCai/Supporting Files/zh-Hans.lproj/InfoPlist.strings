@@ -8,7 +8,7 @@ CFBundleDisplayName = "三采影视平台";
 
 ///tabbar文字
 "Hot" = "热门";
-"Forum" = "论坛";
+"Movie" = "电影";
 "Center" = "个人中心";
 "Setting" = "设置";
 
@@ -24,7 +24,8 @@ CFBundleDisplayName = "三采影视平台";
 
 "Select this item as your desired, push message to you when there is an item reward" = "选择该物品作为期望，当有此物品奖励时将推送消息给您";
 
-
+"Enter a comment title" = "输入评论标题";
+"Comment" = "发表评论";
 
 
 ///登陆方面的
@@ -42,11 +43,13 @@ CFBundleDisplayName = "三采影视平台";
 "Please log in first" = "请先登录";
 "Account does not exist" = "账号不存在";
 
-
 ///
 "Selected Objective" = "已选择的期望物品";
 "Receive Address" = "领取地址";
 
+
+" Film Review " = " 影评 ";
+"Review successful" = "评论成功";
 
 ///
 " Edit" = " 编辑";
@@ -58,8 +61,29 @@ CFBundleDisplayName = "三采影视平台";
 "Name" = "姓名";
 "Phone" = "电话";
 "Address" = "地址";
+"Add address" = "添加地址";
+"Change address" = "修改地址";
 
+"Please fill in the complete" = "请填写完整";
+
+"Submit" = "提交";
+
+"My Tasks" = "我的任务";
 "Task" = "任务";
 "Mall" = "积分商城";
 
+"Fill in the address" = "填写地址";
+
+"Reward" = "打赏";
+
+"Scores" = "积分";
+"Your scores are not enough to reward" = "您的积分不足，不能打赏";
+"This article earned %ld scores" = "文章获得了%ld积分";
+
+///积分商城
+"Scores Mall" = "积分商城";
+"Price:" = "价值:";
+"Exchange Goods" = "兑换物品";
+"Your scores are not enough" = "您的积分不足";
+"Author/" = "文/";
 

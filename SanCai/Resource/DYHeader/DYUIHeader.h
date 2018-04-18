@@ -13,6 +13,8 @@
 
 #define kDevice_iPhoneX CGSizeEqualToSize(CGSizeMake(375, 812), [[UIScreen mainScreen] bounds].size)
 #define NavHeight (kDevice_iPhoneX?84:64)
+#define NavLandscapeHeight(isLandscape) ((kDevice_iPhoneX?84:64)-(isLandscape?20:0))
+
 
 #define mainColor kUIColorFromRGB(0x525252)
 

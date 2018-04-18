@@ -9,10 +9,10 @@
 #ifndef DYHeader_h
 #define DYHeader_h
 
-/** 屏幕的宽度 */
-#define DY_Width [UIScreen mainScreen].bounds.size.width
-/** 屏幕的高度 */
-#define DY_Height [UIScreen mainScreen].bounds.size.height
+#define DY_Height CGRectGetHeight([[UIScreen mainScreen] bounds])
+#define DY_Width CGRectGetWidth([[UIScreen mainScreen] bounds])
+#define DY_SCREEN_MIN MIN(DY_Height,DY_Width)
+#define DY_SCREEN_MAX MAX(DY_Height,DY_Width)
 
 
 /** 定义版本判定 */

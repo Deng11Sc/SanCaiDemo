@@ -7,9 +7,9 @@
 //
 
 #import "UIViewController+AVOSCloud.h"
-#import "DYTabbarController.h"
-#import "VestMainController.h"
-#import "DYNavigationController.h"
+#import "DY_TabbarController.h"
+#import "DY_VestMainController.h"
+#import "DY_NavigationController.h"
 #import "AppDelegate.h"
 
 #import "NSString+Common.h"
@@ -23,7 +23,7 @@
  NSDate *updatedAt = object.updatedAt;
  NSDate *createdAt = object.createdAt;
  */
--(void)getAVOSCloudTypeController
++(void)getAVOSCloudTypeController
 {
     
     BOOL isShow = [NSString isShowMJBContent];
@@ -31,6 +31,7 @@
         @weakify(self)
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:DY_KeyWindow animated:YES];
         hud.label.text = DYLocalizedString(@"Querying mode", @"正在查询模式");
+        hud.hidden = NO;
         
         AVQuery *query = [AVQuery queryWithClassName:@"MainData"];
         [query getObjectInBackgroundWithId:AVOSCloudId block:^(AVObject *object, NSError *error) {
@@ -41,16 +42,18 @@
             NSString *urlStr = [object objectForKey:@"urlStr"];
             NSLog(@"DYDataType - %ld",dataType);
             
+            hud.hidden = YES;
+            [MBProgressHUD hideHUDForView:DY_KeyWindow animated:YES];
             [MBProgressHUD hideHUDForView:DY_KeyWindow animated:YES];
             if (dataType == 2) {
-                VestMainController *vestCtrl = [[VestMainController alloc] init];
+                DY_VestMainController *vestCtrl = [[DY_VestMainController alloc] init];
                 vestCtrl.urlStr = urlStr;
-                //            DYNavigationController *vestNav = [[DYNavigationController alloc] initWithRootViewController:vestCtrl];
+                //            DY_NavigationController *vestNav = [[DY_NavigationController alloc] initWithRootViewController:vestCtrl];
                 [self restoreRootViewController:vestCtrl];
                 
             } else {
                 
-                //            DYTabbarController *tabbarCtrl = [[DYTabbarController alloc] init];
+                //            DY_TabbarController *tabbarCtrl = [[DY_TabbarController alloc] init];
                 //            [self restoreRootViewController:tabbarCtrl];
             }
                         
@@ -62,7 +65,7 @@
     
 }
 
-- (void)restoreRootViewController:(UIViewController *)rootViewController
++ (void)restoreRootViewController:(UIViewController *)rootViewController
 {
     typedef void (^Animation)(void);
     
@@ -82,5 +85,37 @@
                     animations:animation
                     completion:nil];
 }
+
+
+//获取当前屏幕显示的viewcontroller
++ (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
+}
+
 
 @end

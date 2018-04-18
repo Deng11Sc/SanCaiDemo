@@ -11,7 +11,7 @@
 #import "WKWebViewJavascriptBridge.h"
 #import "NSString+Common.h"
 
-#import "DYWebTabbarView.h"
+#import "DY_WebTabbarView.h"
 
 @interface VestMainController ()<WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate,UIScrollViewDelegate>
 
@@ -20,7 +20,7 @@
 @property (nonatomic, strong) UIProgressView *progressView;//添加进度条
 
 
-@property (nonatomic,strong)DYWebTabbarView *toolbar;
+@property (nonatomic,strong)DY_WebTabbarView *toolbar;
 
 @property (nonatomic,strong)NSString *homeUrlStr;
 
@@ -324,10 +324,10 @@
 
 
 #pragma mark ------------------------- 非wkWebView的控件 ------------------------
-- (DYWebTabbarView *)toolbar {
+- (DY_WebTabbarView *)toolbar {
     if (!_toolbar) {
         @weakify(self)
-        _toolbar = [[DYWebTabbarView alloc] initWithFrame:CGRectMake(0, DY_Height - 44, DY_Width, 44)];
+        _toolbar = [[DY_WebTabbarView alloc] initWithFrame:CGRectMake(0, DY_Height - 44, DY_Width, 44)];
         _toolbar.actionBlock = ^(DYWebBtnType btnType) {
             @strongify(self)
             switch (btnType) {
@@ -370,6 +370,11 @@
                     }
                 }
                     break;
+                case DYWebBtnTypeClean:
+                {
+                    [self cleanCacheAndCookie];
+                }
+                    break;
                     
                 default:
                     break;
@@ -378,6 +383,22 @@
         };
     }
     return _toolbar;
+}
+
+/**清除缓存和cookie*/
+- (void)cleanCacheAndCookie{
+    //清除cookies
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies]){
+        [storage deleteCookie:cookie];
+    }
+    //清除UIWebView的缓存
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    NSURLCache * cache = [NSURLCache sharedURLCache];
+    [cache removeAllCachedResponses];
+    [cache setDiskCapacity:0];
+    [cache setMemoryCapacity:0];
 }
 
 
