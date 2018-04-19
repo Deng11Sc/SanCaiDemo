@@ -15,4 +15,9 @@
 
 @property (nonatomic,strong)void (^clickHeadBlk)(void);
 
+
+@property (nonatomic,strong)UIButton *markBtn;
+@property (nonatomic,strong)void (^markBlk)(void);
+
+
 @end

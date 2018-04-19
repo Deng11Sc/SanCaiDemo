@@ -223,11 +223,9 @@
 
 ///选择了地址并保存
 -(void)dy_selectedAddressAndSave:(DY_WinningModel *)winModel objectId:(NSString *)objectId {
-    @weakify(self)
     
     [DY_LeanCloudNet saveObject:winModel objectId:objectId className:URL_WinningModel relationId:nil success:^(NSMutableArray *array,AVObject *object) {
         
-        @strongify(self)
 //        [self dy_actionBack];
         
     } failure:^(DYLeanCloudError error) {

@@ -20,6 +20,8 @@
 ///轮播图
 #import "DY_MovieDescModel.h"
 
+#import "DY_GuidePageController.h"
+
 
 @interface DY_OcrMainController ()<SDCycleScrollViewDelegate>
 
@@ -35,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = DYLocalizedString(@"Hot", @"");        
+    self.title = DYLocalizedString(@"Hot", @"");
     
     [self dy_initTableView];
     self.tableView.height -=49;
@@ -47,7 +49,10 @@
         [self dy_data_from_server_page:_page];
     }];
     self.tableView.mj_header = header;
-    [self.tableView.mj_header beginRefreshing];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.mj_header beginRefreshing];
+    });
     
     MJRefreshBackGifFooter *footer = [MJRefreshBackGifFooter footerWithRefreshingBlock:^{
         _page += 1;
@@ -56,6 +61,17 @@
     self.tableView.mj_footer = footer;
     
     [self dy_setTableHeaderView];
+    
+//    if (DEBUG) {
+//        DY_GuidePageController *gpVC = [[DY_GuidePageController alloc] init];
+//        [self presentViewController:gpVC animated:NO completion:nil];
+//    }
+
+    //跳转引导图
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:BOOLFORKEY]) {
+        DY_GuidePageController *gpVC = [[DY_GuidePageController alloc] init];
+        [self presentViewController:gpVC animated:NO completion:nil];
+    }
 
 }
 
@@ -129,6 +145,7 @@
 
 -(void)dy_data_from_server_page:(NSInteger)page
 {
+    
     [DY_LeanCloudNet getListWithClassName:URL_HotListModel skip:page orderby:nil limit:-1 success:^(NSMutableArray *array,AVObject *object) {
         
         [self.tableView.mj_header endRefreshing];

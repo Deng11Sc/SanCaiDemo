@@ -1,4 +1,4 @@
-CFBundleDisplayName = "三采影视平台";
+CFBundleDisplayName = "分享影趣";
 
 
 "Querying mode" = "正在查询模式";
@@ -20,7 +20,7 @@ CFBundleDisplayName = "三采影视平台";
 "About App" = "关于我们";
 
 
-"Make sure to select this item?" = "确认选择该物品?";
+"Make sure to select this item?" = "この項目を必ず選択してください。";
 
 "Select this item as your desired, push message to you when there is an item reward" = "选择该物品作为期望，当有此物品奖励时将推送消息给您";
 
@@ -34,6 +34,10 @@ CFBundleDisplayName = "三采影视平台";
 "Please enter the password" = "请输入密码";
 "Please confirm your password" = "请确认密码";
 "Please enter account number" = "请输入账号";
+"Please enter new account number" = "请输入新账号";
+
+"Create an account" = "创建新账号";
+
 "Inconsistent password" = "密码不一致";
 "Succeeded" = "注册成功";
 "Register failure" = "注册失败";
@@ -47,6 +51,7 @@ CFBundleDisplayName = "三采影视平台";
 "Selected Objective" = "已选择的期望物品";
 "Receive Address" = "领取地址";
 
+"sign in" = "签到";
 
 " Film Review " = " 影评 ";
 "Review successful" = "评论成功";

@@ -25,6 +25,7 @@
 ///积分model
 #import "DY_ScoresModel.h"
 #import "NSString+ScoresManager.h"
+#import "DY_TaskManager.h"
 
 @interface DY_CenterController ()<DY_CenterListViewDelegate>
 
@@ -73,10 +74,16 @@
 -(DY_UserInfoHeaderView *)headerView {
     if (!_headerView) {
         DY_UserInfoHeaderView *headerView = [[DY_UserInfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, DY_Width, DY_Width*0.618)];
-//        @weakify(self)
+        @weakify(self)
+        headerView.markBlk = ^{
+            [[DY_TaskManager manager] increaseScoresByTaskType:@"1" success:^{
+                [self dy_loadSigninStauts];
+            }];
+        };
+        
         headerView.clickHeadBlk = ^{
             
-//            @strongify(self)
+            @strongify(self)
             if ([DY_LoginInfoManager manager].isLogin == NO) {
                 DY_LoginController *loginVC = [[DY_LoginController alloc] init];
                 DY_NavigationController *loginNav = [[DY_NavigationController alloc] initWithRootViewController:loginVC];
@@ -129,7 +136,7 @@
 
     [self.dataArray addObject:@{@"imageName":@"mine_winning_icon",@"title":DYLocalizedString(@"My Winning", @"中奖纪录")}];
     [self.dataArray addObject:@{@"imageName":@"mine_expected_icon",@"title":DYLocalizedString(@"Expected items", @"期望物品")}];
-    [self.dataArray addObject:@{@"imageName":@"mine_aboutApp_icon",@"title":DYLocalizedString(@"About App", @"关于我们")}];
+//    [self.dataArray addObject:@{@"imageName":@"mine_aboutApp_icon",@"title":DYLocalizedString(@"About App", @"关于我们")}];
     
     [self.tableView reloadData];
 }
@@ -155,11 +162,32 @@
     self.headerView.userInfo = userInfo;
     if ([DY_LoginInfoManager manager].isLogin == YES) {
         self.logoutView.hidden = NO;
+        self.headerView.markBtn.hidden = NO;
     } else {
         self.logoutView.hidden = YES;
+        self.headerView.markBtn.hidden = YES;
     }
     
     [self.tableView reloadData];
+    
+    [self dy_loadSigninStauts];
+}
+
+-(void)dy_loadSigninStauts {
+    NSMutableArray<DY_TasksModel *> *tasksArr =[DY_TaskManager manager].tasksArr;
+    for (DY_TasksModel *model in tasksArr) {
+        if ([model.taskType integerValue] == 1) {
+            
+            if ([model.userTasksModel.finishTimes integerValue] >= [model.finishMaxNumber integerValue]) {
+                self.headerView.markBtn.hidden = YES;
+            } else {
+                self.headerView.markBtn.hidden = NO;
+            }
+            
+            break;
+        }
+    }
+    
 }
 
 

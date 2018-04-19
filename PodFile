@@ -4,6 +4,7 @@ inhibit_all_warnings!
 target ‘SanCai’ do
     pod 'IQKeyboardManager'
     pod 'SDWebImage', '~>3.8'
+    pod 'AFNetworking', '~> 3.0'
     pod 'Masonry'
     pod 'FMDB'
     pod 'MJExtension'
@@ -13,6 +14,5 @@ target ‘SanCai’ do
     pod 'WebViewJavascriptBridge', git: 'https://github.com/HYC192/WebViewJavascriptBridge.git'
     pod 'TOCropViewController', git: 'https://github.com/liu3619376/TOCropViewController.git'
     pod 'JPush'
-    pod 'AliyunOSSiOS'
 
 end

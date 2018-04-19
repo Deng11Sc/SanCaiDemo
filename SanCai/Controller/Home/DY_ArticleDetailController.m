@@ -26,6 +26,12 @@
 @implementation DY_ArticleDetailController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadData];
+}
+
+
+-(void)loadData {
     @weakify(self)
     
     if (self.filmModel) {
@@ -58,7 +64,6 @@
             [self dy_initTableView];
             self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             self.tableView.tableHeaderView = self.headerView;
-            self.tableView.tableFooterView = self.footerView;
         }];
         
         
@@ -98,14 +103,30 @@
         }
         NSString *imgUrl = self.textArr[indexPath.row].imageUrl;
         __weak DY_ArticleImageCell *weakCell = cell;
+        @weakify(self)
         [cell.dy_imageView sd_setImageWithURL:[NSURL URLWithString:[imgUrl getImageCompleteUrl]]completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            [weakCell layoutSubviews];
+            @strongify(self)
+            DY_DetaillTextModel *textModel = self.textArr[indexPath.row];
+            
+            if (!textModel.imageHeight) {
+                textModel.imageHeight = [weakCell resetImageHeight];
+                [self.tableView reloadData];
+            }
         } ];
         return cell;
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.textArr[indexPath.row].height;
+    if (!self.textArr[indexPath.row].isImage) {
+        return self.textArr[indexPath.row].height;
+    } else {
+        DY_DetaillTextModel *textModel = self.textArr[indexPath.row];
+        if (!textModel.imageHeight) {
+            return self.textArr[indexPath.row].height;
+        } else {
+            return self.textArr[indexPath.row].imageHeight;
+        }
+    }
 }
 -(UIView *)headerView {
     if (!_headerView) {
@@ -321,6 +342,15 @@
 
 }
 
+
+- (void)setIsLandscape:(BOOL)isLandscape {
+    
+    [super setIsLandscape:isLandscape];
+    
+    [self loadData];
+    
+    
+}
 
 
 @end

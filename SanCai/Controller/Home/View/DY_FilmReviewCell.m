@@ -83,7 +83,6 @@
     [self.contentView addSubview:descLabel];
     _descLabel = descLabel;
 
-    
     [self _setLayoutSubviews];
 }
 
@@ -97,6 +96,7 @@
     [_titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_leftImageView);
         make.left.equalTo(_leftImageView.mas_right).offset(8);
+        make.right.mas_equalTo(-8);
         make.height.mas_equalTo(20);
     }];
 

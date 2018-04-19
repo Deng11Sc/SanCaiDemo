@@ -36,6 +36,11 @@
 ///获取用户当天完成任务的情况
 - (void)getUserTaskData_successBlk:(void (^)(NSMutableArray<DY_TasksModel *> *dataArray))successBlk
 {
+    
+    if ([NSString isEmptyString:SELF_USER_ID]) {
+        return;
+    }
+    
     AVQuery *query = [AVQuery queryWithClassName:URL_UserTasksModel];
     [query whereKey:@"userId" equalTo:SELF_USER_ID];
     [query whereKey:@"userMark" equalTo:[self getUserMark]];
@@ -94,7 +99,7 @@
 }
 
 
-- (void)increaseScoresByTaskType:(NSString *)taskType {
+- (void)increaseScoresByTaskType:(NSString *)taskType success:(void (^)(void))successBlk {
     
     if (self.tasksArr == nil) {
         NSLog(@"积分任务获取失败 ---");
@@ -131,7 +136,11 @@
                     if (succeeded) {
                         // 存储成功
                         NSLog(@" 积分任务type:%@完成了一次,当前完成状态为%ld/%ld",taskType,(long)1,[currentTaskModel.finishMaxNumber integerValue]);
-
+                        
+                        if (successBlk) {
+                            successBlk();
+                        }
+                        
                     } else {
                         
                     }
@@ -168,7 +177,11 @@
                         if (succeeded) {
                             
                             NSLog(@" 积分任务type:%@完成了一次,当前完成状态为%ld/%ld",taskType,[currentTaskModel.userTasksModel.finishTimes integerValue]+1,[currentTaskModel.finishMaxNumber integerValue]);
+                            currentTaskModel.userTasksModel.finishTimes = [NSString stringWithFormat:@"%ld",[currentTaskModel.userTasksModel.finishTimes integerValue]+1];
                             
+                            if (successBlk) {
+                                successBlk();
+                            }
                             //提升积分
                             [NSString server_saveScoresWithUserId:SELF_USER_ID objId:nil changedNumber:[currentTaskModel.taskScores integerValue]];
 

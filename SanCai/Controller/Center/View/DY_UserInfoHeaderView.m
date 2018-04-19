@@ -52,6 +52,7 @@
     headBtn.clipsToBounds = YES;
     [self addSubview:headBtn];
     _headBtn = headBtn;
+
     
     headBtn.layer.cornerRadius = 32;
     [headBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -60,6 +61,24 @@
         make.size.mas_equalTo(CGSizeMake(64, 64));
     }];
     
+    
+    UIButton *trueBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [trueBtn dy_configure];
+    trueBtn.backgroundColor =kUIColorFromRGB_Alpa(0xFFFFFF, 0.8);
+    [trueBtn.layer setCornerRadius:4];
+    trueBtn.clipsToBounds = YES;
+    [trueBtn setTitle:DYLocalizedString(@"sign in", nil) forState:0];
+    [trueBtn setTitleColor:kUIColorFromRGB(0x2089ff) forState:0];
+    [trueBtn addTarget:self action:@selector(dy_markAction) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:trueBtn];
+    _markBtn = trueBtn;
+
+    [trueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.mas_equalTo(-16);
+        make.width.mas_equalTo(90);
+        make.top.mas_equalTo(16);
+        make.height.equalTo(@35);
+    }] ;
     
     UILabel *nameLabel = [[UILabel alloc] init];
     [nameLabel dy_configure];
@@ -74,6 +93,12 @@
         make.right.mas_equalTo(-20);
     }];
     
+}
+
+- (void)dy_markAction {
+    if (self.markBlk) {
+        self.markBlk();
+    }
 }
 
 - (void)setUserInfo:(DY_UserInfoModel *)userInfo

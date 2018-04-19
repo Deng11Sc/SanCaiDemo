@@ -43,7 +43,6 @@
     
     UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, 21, self.view.bounds.size.width, DY_Height-44-21)];
     webView.scalesPageToFit = YES; // 对页面进行缩放以适应屏幕
-    webView.detectsPhoneNumbers = YES; //检测网页上的电话号码，单击可以拨打
     webView.delegate = self;
     webView.backgroundColor = [UIColor clearColor];
     webView.opaque=NO;//这句话很重要，webView是否是不透明的，no为透明 在webView下添加个imageView展示图片就可以了

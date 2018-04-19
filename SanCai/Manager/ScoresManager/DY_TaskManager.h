@@ -22,7 +22,7 @@
 - (void)getUserTaskData_successBlk:(void (^)(NSMutableArray<DY_TasksModel *> *dataArray))successBlk;
 
 
--(void)increaseScoresByTaskType:(NSString *)taskType;
+-(void)increaseScoresByTaskType:(NSString *)taskType success:(void (^)(void))successBlk;
 
 
 ///退出登陆需要调用

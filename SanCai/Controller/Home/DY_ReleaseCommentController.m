@@ -11,6 +11,7 @@
 
 ///构造影评model
 #import "DY_FilmReviewModel.h"
+#import "DY_TaskManager.h"
 
 
 @interface DY_ReleaseCommentController ()
@@ -36,7 +37,9 @@
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             NSLog(@"success");
             
+            [[DY_TaskManager manager] increaseScoresByTaskType:self.movieModel.taskType success:nil];
             [NSObject showMessage:DYLocalizedString(@"Review successful", @"评论成功")];
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
             });

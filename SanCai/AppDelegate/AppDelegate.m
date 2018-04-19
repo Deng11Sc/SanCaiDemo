@@ -12,8 +12,6 @@
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
-#import "DY_TabbarController.h"
-
 ///数据库创建
 #import "NNSqliteHeader.h"
 ///任务管理器
@@ -23,6 +21,8 @@
 #import "UIViewController+AVOSCloud.h"
 #import "DY_LoginController.h"
 #import "DY_RegistController.h"
+
+#import "AppDelegate+StartMonitoring.h"
 
 
 @interface AppDelegate ()
@@ -43,9 +43,10 @@
     
     //跳转登录页面通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentLoginViewController) name:@"presentLoginViewController" object:nil];
+    
+    ///登录成功通知，需要重新拉取数据
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccessAction) name:@"loginSuccess" object:nil];
 
-    
-    
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES; // 控制点击背景是否收起键盘
@@ -53,12 +54,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
+    ///监听网络,判断进入哪个控制器
+    [self startToListenNow];
     
-    DY_TabbarController *tabbarCtrl = [[DY_TabbarController alloc] init];
-    self.window.rootViewController = tabbarCtrl;
-    [self.window makeKeyAndVisible];
-
-    
+        
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [NNSqliteHeader init_sql];
         
@@ -72,7 +71,7 @@
 
 -(void)finishTask {
     
-    [[DY_TaskManager manager] increaseScoresByTaskType:@"0"];
+    [[DY_TaskManager manager] increaseScoresByTaskType:@"0" success:nil];
     
 }
 
@@ -90,6 +89,16 @@
     
 }
 
+- (void)loginSuccessAction {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        [[DY_TaskManager manager] getUserTaskData_successBlk:^(NSMutableArray<DY_TasksModel *> *dataArray) {
+            [self finishTask];
+        }];
+        
+    });
+
+}
 
 
 

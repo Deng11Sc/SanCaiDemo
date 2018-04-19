@@ -34,29 +34,46 @@
 
 -(void)dy_initSubviews {
     
+    UIImageView *baseView = [[UIImageView alloc] init];
+    baseView.userInteractionEnabled = YES;
+    baseView.contentMode = UIViewContentModeScaleAspectFill;
+    baseView.image = [UIImage imageNamed:@"backImage_regist"];
+    baseView.backgroundColor = [UIColor blueColor];
+    baseView.clipsToBounds = YES;
+    [self.view addSubview:baseView];
+    _baseView = baseView;
+    
+    [baseView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
     DY_InputLoginView *loginView = [[DY_InputLoginView alloc] init];
+    loginView.backgroundColor =kUIColorFromRGB_Alpa(0xFFFFFF, 0.8);
     [self.view addSubview:loginView];
     _loginView = loginView;
     
+    loginView.tf1.placeholder = DYLocalizedString(@"Please enter new account number", @"请输入新账号");
+    
     [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.centerY.equalTo(self.view);
+        make.centerY.equalTo(self.view).multipliedBy(0.8);
         make.left.equalTo(self.view).offset(12);
         make.height.mas_equalTo([DY_InputLoginView height]);
     }];
     
     UIButton *trueBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [trueBtn dy_configure];
-    trueBtn.backgroundColor = [UIColor whiteColor];
+    trueBtn.backgroundColor =kUIColorFromRGB_Alpa(0xFFFFFF, 0.8);
     [trueBtn.layer setCornerRadius:4];
     trueBtn.clipsToBounds = YES;
-    [trueBtn setTitle:DYLocalizedString(@"Regist", @"注册") forState:0];
-    [trueBtn setTitleColor:[UIColor blueColor] forState:0];
+    [trueBtn setTitle:DYLocalizedString(@"Create an account", @"创建新账号") forState:0];
+    [trueBtn setTitleColor:kUIColorFromRGB(0x2089ff) forState:0];
     [trueBtn addTarget:self action:@selector(registServer) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:trueBtn];
     
     [trueBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(loginView);
+        make.centerX.equalTo(loginView);
+        make.width.equalTo(_baseView).multipliedBy(0.66);
         make.top.equalTo(loginView.mas_bottom).offset(12);
         make.height.equalTo(@35);
     }];
