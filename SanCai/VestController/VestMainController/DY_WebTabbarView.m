@@ -44,7 +44,7 @@
         } else {
             [btn setTitle:(NSString *)img forState:0];
             btn.titleLabel.font = [UIFont systemFontOfSize:16];
-            [btn setTitleColor:DY_CustomColor_3A3534 forState:0];
+            [btn setTitleColor:CC_CustomColor_3A3534 forState:0];
         }
         btn.tag = [dic[@"type"] integerValue];
         [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];

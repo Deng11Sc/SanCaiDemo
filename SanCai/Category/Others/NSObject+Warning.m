@@ -14,8 +14,8 @@ static UIView *_warningView = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _warningView = [[UIView alloc] init];
-        _warningView.frame = CGRectMake(0, 0, DY_Width, 64);
-        _warningView.backgroundColor = DY_CustomColor_FA5252;
+        _warningView.frame = CGRectMake(0, 0, CC_Width, 64);
+        _warningView.backgroundColor = CC_CustomColor_FA5252;
         
         UIImageView *icon = [[UIImageView alloc] init];
         icon.frame = CGRectMake(20, 20 , 24, 24);
@@ -23,7 +23,7 @@ static UIView *_warningView = nil;
         [_warningView addSubview:icon];
     
         UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(icon.right+5, 10, DY_Width - icon.right - 30, 44);
+        label.frame = CGRectMake(icon.right+5, 10, CC_Width - icon.right - 30, 44);
         label.numberOfLines = 2;
         label.font = [UIFont systemFontOfSize:16];
         label.textColor = [UIColor whiteColor];
@@ -45,20 +45,20 @@ static UIView *_warningView = nil;
     label.text = desprition;
     i ++;
     [[self shareWarningView] removeFromSuperview];
-    [self shareWarningView].frame = CGRectMake(0, -64, DY_Width, 64);
+    [self shareWarningView].frame = CGRectMake(0, -64, CC_Width, 64);
     
-    UIWindow *window = DY_KeyWindow;
+    UIWindow *window = CC_KeyWindow;
     window.windowLevel = UIWindowLevelStatusBar + 1.0;
     window.hidden = NO;
     window.autoresizesSubviews = YES;
     [window addSubview:_warningView];
     
     [UIView animateWithDuration:0.35 animations:^{
-        [self shareWarningView].frame = CGRectMake(0, 0, DY_Width, 64);
+        [self shareWarningView].frame = CGRectMake(0, 0, CC_Width, 64);
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:0.35 delay:2 options:UIViewAnimationOptionTransitionNone animations:^{
-            [self shareWarningView].frame = CGRectMake(0, -64, DY_Width, 64);
+            [self shareWarningView].frame = CGRectMake(0, -64, CC_Width, 64);
             
         } completion:^(BOOL finished) {
             i = 0;
@@ -82,7 +82,7 @@ static UILabel *_shareTip = nil;
         label.textColor = [UIColor whiteColor];
         label.clipsToBounds = YES;
         [label.layer setCornerRadius:2];
-        label.backgroundColor = DY_CustomColor_FA5252;
+        label.backgroundColor = CC_CustomColor_FA5252;
         _shareTip = label;
         
     });
@@ -102,11 +102,11 @@ static BOOL _isShow = YES;
     tipLabel.font = [UIFont systemFontOfSize:16];
     tipLabel.backgroundColor = kUIColorFromRGB_Alpa(0x535353, 0.8);
     tipLabel.text = tip;
-    [DY_KeyWindow addSubview:tipLabel];
+    [CC_KeyWindow addSubview:tipLabel];
     
     CGSize size = [tipLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, 24)];
     [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.centerY.equalTo(DY_KeyWindow);
+        make.centerX.centerY.equalTo(CC_KeyWindow);
         make.height.mas_equalTo(44);
         make.width.mas_equalTo(size.width+16);
     }];
@@ -137,11 +137,11 @@ static BOOL _isShow = YES;
     _isShow = NO;
     UILabel *tipLabel = [self shareTip];
     tipLabel.text = torast;
-    [DY_KeyWindow addSubview:tipLabel];
+    [CC_KeyWindow addSubview:tipLabel];
     
     CGSize size = [tipLabel sizeThatFits:CGSizeMake(CGFLOAT_MAX, 24)];
     [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.centerY.equalTo(DY_KeyWindow);
+        make.centerX.centerY.equalTo(CC_KeyWindow);
         make.height.mas_equalTo(24);
         make.width.mas_equalTo(size.width+16);
     }];

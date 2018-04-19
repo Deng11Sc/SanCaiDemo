@@ -66,9 +66,9 @@
         [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(cell.contentView).offset(4);
             make.centerX.equalTo(cell.contentView);
-            make.size.mas_equalTo(CGSizeMake(DY_SCREEN_MIN/2, DY_SCREEN_MIN/2));
+            make.size.mas_equalTo(CGSizeMake(CC_SCREEN_MIN/2, CC_SCREEN_MIN/2));
         }];
-        [self.imgView sd_setImageWithURL:[NSURL URLWithString:self.listModel.imageUrl] placeholderImage:DY_PlaceholderImage];
+        [self.imgView sd_setImageWithURL:[NSURL URLWithString:self.listModel.imageUrl] placeholderImage:CC_PlaceholderImage];
         
     } else if (indexPath.row == 1) {
         
@@ -82,7 +82,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return DY_SCREEN_MIN/2+8;
+        return CC_SCREEN_MIN/2+8;
     }
     
     return 80.f;
@@ -100,14 +100,14 @@
 
 - (UIView *)exchangeView {
     if (!_exchangeView) {
-        UIView *logoutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DY_Width, 80)];
+        UIView *logoutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CC_Width, 80)];
         
         
         UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         logoutBtn.frame = CGRectMake(logoutView.width/2-120/2, logoutView.height/2-44/2, 120, 44);
         [logoutBtn dy_configure];
         logoutBtn.tag = 1;
-        logoutBtn.backgroundColor = DY_CustomColor_2594D2;
+        logoutBtn.backgroundColor = CC_CustomColor_2594D2;
         [logoutBtn setTitle:DYLocalizedString(@"Exchange Goods", @"兑换物品") forState:0];
         [logoutBtn addTarget:self action:@selector(exchangeAction:) forControlEvents:UIControlEventTouchUpInside];
         [logoutView addSubview:logoutBtn];
@@ -139,7 +139,7 @@
             
             __block DY_WinningModel *weakWinModel = winModel;
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            [DY_LeanCloudNet saveObject:winModel objectId:nil className:URL_WinningModel relationId:nil success:^(NSMutableArray *array,AVObject *object) {
+            [DY_LeanCloudNet saveObject:winModel objectId:nil className:URL_WinningModel numberArr:nil relationId:nil success:^(NSMutableArray *array,AVObject *object) {
                 
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 
@@ -149,7 +149,7 @@
                     @strongify(self)
                     
                     ///减少积分
-                    [NSString server_saveScoresWithUserId:SELF_USER_ID objId:scoresModel.objId changedNumber:-[winModel.priceScores integerValue]];
+                    [NSString server_saveScoresWithUserId:SELF_USER_ID objId:scoresModel.objId changedNumber:-[winModel.priceScores integerValue] endblk:nil];
 
                     weakWinModel.address = address;
                     [self dy_selectedAddressAndSave:weakWinModel objectId:object.objectId];
@@ -175,7 +175,7 @@
 -(void)dy_selectedAddressAndSave:(DY_WinningModel *)winModel objectId:(NSString *)objectId {
     @weakify(self)
     
-    [DY_LeanCloudNet saveObject:winModel objectId:objectId className:URL_WinningModel relationId:nil success:^(NSMutableArray *array,AVObject *object) {
+    [DY_LeanCloudNet saveObject:winModel objectId:objectId className:URL_WinningModel numberArr:nil relationId:nil success:^(NSMutableArray *array,AVObject *object) {
         
         @strongify(self)
         [self dy_actionBack];
@@ -189,7 +189,7 @@
 - (void)setIsLandscape:(BOOL)isLandscape {
     [super setIsLandscape:isLandscape];
     
-    self.exchangeView.frame = CGRectMake(0, 0, DY_Width, 80);
+    self.exchangeView.frame = CGRectMake(0, 0, CC_Width, 80);
     [self.exchangeView viewWithTag:1].frame = CGRectMake(self.exchangeView.width/2-120/2, self.exchangeView.height/2-44/2, 120, 44);
 
     

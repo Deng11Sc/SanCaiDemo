@@ -135,7 +135,7 @@
 - (void)setFilmModel:(DY_FilmReviewModel *)filmModel {
     _filmModel = filmModel;
     
-    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:filmModel.movieImgUrl] placeholderImage:DY_PlaceholderImage];;
+    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:filmModel.movieImgUrl] placeholderImage:CC_PlaceholderImage];;
     self.titleLabel.text = filmModel.title;
     self.movieNameLabel.text = [NSString stringWithFormat:@" %@ ",filmModel.movieName];
     self.typeLabel.text = [NSString stringWithFormat:@" %@ ",filmModel.commentType];

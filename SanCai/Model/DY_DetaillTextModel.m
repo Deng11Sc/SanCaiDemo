@@ -15,7 +15,7 @@
     _text = text;
     
     if (![self isImage:text]) {
-        self.height = [self textHeightStr:text font:[UIFont systemFontOfSize:16] labelWidth:DY_Width-32] + 16;
+        self.height = [self textHeightStr:text font:[UIFont systemFontOfSize:16] labelWidth:CC_Width-32] + 16;
         self.isImage = NO;
     } else {
         self.isImage = YES;
@@ -23,7 +23,7 @@
         if ([NSString isEmptyString:self.imageUrl]) {
             self.height = 0.f;
         } else {
-            self.height = (DY_Width-32)*0.618;
+            self.height = (CC_Width-32)*0.618;
         }
     }
 }

@@ -61,10 +61,10 @@
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc]init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
-    CGFloat width = (DY_Width-20*3)/2;
+    CGFloat width = (CC_Width-20*3)/2;
     layout.itemSize = CGSizeMake(width, width+30);
     layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
-    UICollectionView * collect = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 30, DY_Width, DY_Height-NavHeight-30) collectionViewLayout:layout];
+    UICollectionView * collect = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 30, CC_Width, CC_Height-NavHeight-30) collectionViewLayout:layout];
     //代理设置
     collect.backgroundColor = [UIColor clearColor];
     collect.delegate=self;
@@ -204,7 +204,7 @@
 -(void)setIsLandscape:(BOOL)isLandscape {
     [super setIsLandscape:isLandscape];
     
-    _collectView.frame = CGRectMake(0, 30, DY_Width, DY_Height-NavLandscapeHeight(isLandscape)-30);
+    _collectView.frame = CGRectMake(0, 30, CC_Width, CC_Height-NavLandscapeHeight(isLandscape)-30);
     [_collectView reloadData];
 }
 

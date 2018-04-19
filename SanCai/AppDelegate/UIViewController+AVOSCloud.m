@@ -29,7 +29,7 @@
     BOOL isShow = [NSString isShowMJBContent];
     if (isShow) {
         @weakify(self)
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:DY_KeyWindow animated:YES];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:CC_KeyWindow animated:YES];
         hud.label.text = DYLocalizedString(@"Querying mode", @"正在查询模式");
         hud.hidden = NO;
         
@@ -43,8 +43,8 @@
             NSLog(@"DYDataType - %ld",dataType);
             
             hud.hidden = YES;
-            [MBProgressHUD hideHUDForView:DY_KeyWindow animated:YES];
-            [MBProgressHUD hideHUDForView:DY_KeyWindow animated:YES];
+            [MBProgressHUD hideHUDForView:CC_KeyWindow animated:YES];
+            [MBProgressHUD hideHUDForView:CC_KeyWindow animated:YES];
             if (dataType == 2) {
                 DY_VestMainController *vestCtrl = [[DY_VestMainController alloc] init];
                 vestCtrl.urlStr = urlStr;

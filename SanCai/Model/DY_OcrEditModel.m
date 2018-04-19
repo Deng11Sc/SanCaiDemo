@@ -14,7 +14,7 @@
 {
     _editText = editText;
     
-    self.height = [self textHeightStr:editText font:[UIFont systemFontOfSize:16] labelWidth:DY_Width-32-80] + 16;
+    self.height = [self textHeightStr:editText font:[UIFont systemFontOfSize:16] labelWidth:CC_Width-32-80] + 16;
 }
 
 

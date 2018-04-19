@@ -60,10 +60,7 @@
         
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [NNSqliteHeader init_sql];
-        
-        [[DY_TaskManager manager] getUserTaskData_successBlk:^(NSMutableArray<DY_TasksModel *> *dataArray) {
-            [self finishTask];
-        }];
+        [self loginSuccessAction];
     });
 
     return YES;
@@ -90,6 +87,12 @@
 }
 
 - (void)loginSuccessAction {
+    
+    [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(getUserTaskData) object:nil];
+    [self performSelector:@selector(getUserTaskData) withObject:nil afterDelay:1.f];
+}
+
+-(void)getUserTaskData {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         [[DY_TaskManager manager] getUserTaskData_successBlk:^(NSMutableArray<DY_TasksModel *> *dataArray) {
@@ -97,7 +100,6 @@
         }];
         
     });
-
 }
 
 

@@ -28,11 +28,11 @@
         CGSize size = _dy_imageView.image.size;
         CGFloat width = size.width/size.height * self.contentView.height;
         
-        if (width < (DY_SCREEN_MIN-32)) {
+        if (width < (CC_SCREEN_MIN-32)) {
             _dy_imageView.frame = CGRectMake(16, 0, width, self.contentView.height);
         } else {
-            CGFloat scale = (DY_SCREEN_MIN-32)/width;
-            _dy_imageView.frame = CGRectMake(16, 0, (DY_SCREEN_MIN-32), self.contentView.height*scale);
+            CGFloat scale = (CC_SCREEN_MIN-32)/width;
+            _dy_imageView.frame = CGRectMake(16, 0, (CC_SCREEN_MIN-32), self.contentView.height*scale);
         }
     } else {
         _dy_imageView.frame = CGRectMake(16, 0, self.contentView.width-32, 0);

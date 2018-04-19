@@ -62,7 +62,7 @@
         config.mediaPlaybackRequiresUserAction = NO;
     }
     
-    CGRect webRect = CGRectMake(self.view.bounds.origin.x, 21, self.view.bounds.size.width, DY_Height-44-21);
+    CGRect webRect = CGRectMake(self.view.bounds.origin.x, 21, self.view.bounds.size.width, CC_Height-44-21);
     WKWebView *wkWeb = [[WKWebView alloc] initWithFrame:webRect configuration:config];
     wkWeb.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     wkWeb.navigationDelegate = self;
@@ -127,7 +127,7 @@
 //        rect.size.height = -point.y;
 //        [self.wkWebView.scrollView viewWithTag:1001].frame = rect;
 //    }else{
-//        [self.wkWebView.scrollView viewWithTag:1001].frame = CGRectMake(0, 0, DY_Width, 0);
+//        [self.wkWebView.scrollView viewWithTag:1001].frame = CGRectMake(0, 0, CC_Width, 0);
 //    }
 //    
 //}
@@ -327,7 +327,7 @@
 - (DY_WebTabbarView *)toolbar {
     if (!_toolbar) {
         @weakify(self)
-        _toolbar = [[DY_WebTabbarView alloc] initWithFrame:CGRectMake(0, DY_Height - 44, DY_Width, 44)];
+        _toolbar = [[DY_WebTabbarView alloc] initWithFrame:CGRectMake(0, CC_Height - 44, CC_Width, 44)];
         _toolbar.actionBlock = ^(DYWebBtnType btnType) {
             @strongify(self)
             switch (btnType) {

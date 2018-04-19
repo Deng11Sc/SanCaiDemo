@@ -55,7 +55,7 @@
     scoresBtn.titleLabel.font = [UIFont systemFontOfSize:14];
     scoresBtn.backgroundColor = [UIColor clearColor];
     scoresBtn.clipsToBounds = YES;
-    [scoresBtn.layer setBorderColor:DY_CustomColor_BAB2AF.CGColor];
+    [scoresBtn.layer setBorderColor:CC_CustomColor_BAB2AF.CGColor];
     [scoresBtn.layer setBorderWidth:0.5];
     [scoresBtn.layer setCornerRadius:4];
     [scoresBtn setImage:[UIImage imageNamed:@"icon_scores_small"] forState:0];
@@ -113,7 +113,7 @@
 -(void)setTasksModel:(DY_TasksModel *)tasksModel {
     _tasksModel = tasksModel;
     
-    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:tasksModel.taskImg] placeholderImage:DY_PlaceholderImage];;
+    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:tasksModel.taskImg] placeholderImage:CC_PlaceholderImage];;
     self.titleLabel.text = tasksModel.taskName;
     [self.scoresBtn setTitle:tasksModel.taskScores forState:0];
     

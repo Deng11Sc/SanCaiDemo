@@ -136,7 +136,7 @@
     _descModel = descModel;
     
     NSString *url = [NSString isEmptyString:descModel.imageUrl]?descModel.movieImg:descModel.imageUrl;
-    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:DY_PlaceholderImage];
+    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:CC_PlaceholderImage];
     
     self.titleLabel.text = descModel.movieName;
     

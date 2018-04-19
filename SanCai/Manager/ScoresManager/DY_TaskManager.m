@@ -41,6 +41,8 @@
         return;
     }
     
+    [NSString server_saveScoresWithUserId:SELF_USER_ID objId:nil changedNumber:0 endblk:nil];
+    
     AVQuery *query = [AVQuery queryWithClassName:URL_UserTasksModel];
     [query whereKey:@"userId" equalTo:SELF_USER_ID];
     [query whereKey:@"userMark" equalTo:[self getUserMark]];
@@ -137,6 +139,11 @@
                         // 存储成功
                         NSLog(@" 积分任务type:%@完成了一次,当前完成状态为%ld/%ld",taskType,(long)1,[currentTaskModel.finishMaxNumber integerValue]);
                         
+                        if (!currentTaskModel.userTasksModel) {
+                            currentTaskModel.userTasksModel = [[DY_UserTasksModel alloc] init];
+                        }
+                        currentTaskModel.userTasksModel.finishTimes = [NSString stringWithFormat:@"%ld",[currentTaskModel.userTasksModel.finishTimes integerValue]+1];
+                        
                         if (successBlk) {
                             successBlk();
                         }
@@ -177,13 +184,14 @@
                         if (succeeded) {
                             
                             NSLog(@" 积分任务type:%@完成了一次,当前完成状态为%ld/%ld",taskType,[currentTaskModel.userTasksModel.finishTimes integerValue]+1,[currentTaskModel.finishMaxNumber integerValue]);
+                            
                             currentTaskModel.userTasksModel.finishTimes = [NSString stringWithFormat:@"%ld",[currentTaskModel.userTasksModel.finishTimes integerValue]+1];
                             
                             if (successBlk) {
                                 successBlk();
                             }
                             //提升积分
-                            [NSString server_saveScoresWithUserId:SELF_USER_ID objId:nil changedNumber:[currentTaskModel.taskScores integerValue]];
+                            [NSString server_saveScoresWithUserId:SELF_USER_ID objId:nil changedNumber:[currentTaskModel.taskScores integerValue] endblk:nil];
 
                             
                         } else if (error.code == 305) {

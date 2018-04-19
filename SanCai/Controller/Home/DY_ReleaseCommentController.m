@@ -33,7 +33,7 @@
         
         @strongify(self)
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [DY_LeanCloudNet saveObject:filmModel objectId:nil className:URL_HotListModel relationId:nil success:^(NSMutableArray *array, AVObject *object) {
+        [DY_LeanCloudNet saveObject:filmModel objectId:nil className:URL_HotListModel numberArr:nil relationId:nil success:^(NSMutableArray *array, AVObject *object) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             NSLog(@"success");
             

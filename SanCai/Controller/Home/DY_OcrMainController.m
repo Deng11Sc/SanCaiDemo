@@ -82,7 +82,7 @@
     NSArray *titles = @[];
 
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0
-                                                                                                , DY_Width, DY_Width *0.55) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                                                                                                , CC_Width, CC_Width *0.55) delegate:self placeholderImage:[UIImage imageNamed:@"placeholder"]];
 
     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
     cycleScrollView.autoScrollTimeInterval = 4;
@@ -219,7 +219,7 @@
     [super setIsLandscape:isLandscape];
     
     self.cycleScrollView.frame = CGRectMake(0, 0
-                                            , DY_Width, DY_Width *0.55);
+                                            , CC_Width, CC_Width *0.55);
 }
 
 

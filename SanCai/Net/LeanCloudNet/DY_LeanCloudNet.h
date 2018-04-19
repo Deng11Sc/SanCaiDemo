@@ -63,6 +63,7 @@ typedef void (^failure)(DYLeanCloudError error);
 +(void)saveObject:(id)model
          objectId:(NSString *)objectId
         className:(NSString *)className
+        numberArr:(NSArray *)arr
        relationId:(NSString *)relationId
           success:(successful)successful
           failure:(failure)faliure;

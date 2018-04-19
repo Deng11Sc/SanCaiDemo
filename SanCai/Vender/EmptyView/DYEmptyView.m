@@ -25,15 +25,15 @@
         self.imageView.frame = CGRectMake((width-imageSize.width*SizeScale)/2, 0, imageSize.width*SizeScale, imageSize.height*SizeScale);
         self.imageView.image = image;
         
-        self.defaultLabel.frame = CGRectMake((DY_Width-228)*0.5, self.imageView.bottom + 8, 228, 40);
+        self.defaultLabel.frame = CGRectMake((CC_Width-228)*0.5, self.imageView.bottom + 8, 228, 40);
         self.defaultLabel.text = title;
         self.defaultLabel.numberOfLines = 2;
         
         if (top < 0) {
-            top = (300 *DY_Height/675-64) - (imageSize.height+28)/2;
+            top = (300 *CC_Height/675-64) - (imageSize.height+28)/2;
         }
         
-        self.frame = CGRectMake(0, top, width?width:DY_Width, imageSize.height+28);
+        self.frame = CGRectMake(0, top, width?width:CC_Width, imageSize.height+28);
     }
     return self;
 }
@@ -51,7 +51,7 @@
         self.defaultLabel.frame = CGRectMake(0, self.imageView.bottom + 8, rect.size.width, 40);
         self.defaultLabel.text = title;
         
-        self.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width?rect.size.width:DY_Width, rect.size.height);
+        self.frame = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width?rect.size.width:CC_Width, rect.size.height);
     }
     return self;
 }

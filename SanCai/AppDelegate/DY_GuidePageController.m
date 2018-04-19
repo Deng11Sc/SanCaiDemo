@@ -31,7 +31,7 @@
     
     // 静态引导页
     NSArray *imageNameArray = @[@"GuideImage1",@"GuideImage2",@"GuideImage3",@"GuideImage4"];
-    DHGuidePageHUD *guidePage = [[DHGuidePageHUD alloc] dh_initWithFrame:CGRectMake(0, 0, DY_Width, DY_Height) imageNameArray:imageNameArray buttonIsHidden:NO];
+    DHGuidePageHUD *guidePage = [[DHGuidePageHUD alloc] dh_initWithFrame:CGRectMake(0, 0, CC_Width, CC_Height) imageNameArray:imageNameArray buttonIsHidden:NO];
     guidePage.slideInto = YES;
     [self.view addSubview:guidePage];
 

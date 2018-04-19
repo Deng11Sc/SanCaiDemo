@@ -41,7 +41,7 @@
     self.progressView = progressView;
     
     
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, 21, self.view.bounds.size.width, DY_Height-44-21)];
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, 21, self.view.bounds.size.width, CC_Height-44-21)];
     webView.scalesPageToFit = YES; // 对页面进行缩放以适应屏幕
     webView.delegate = self;
     webView.backgroundColor = [UIColor clearColor];
@@ -88,7 +88,7 @@
 - (DY_WebTabbarView *)toolbar {
     if (!_toolbar) {
         @weakify(self)
-        _toolbar = [[DY_WebTabbarView alloc] initWithFrame:CGRectMake(0, DY_Height - 44, DY_Width, 44)];
+        _toolbar = [[DY_WebTabbarView alloc] initWithFrame:CGRectMake(0, CC_Height - 44, CC_Width, 44)];
         _toolbar.actionBlock = ^(DYWebBtnType btnType) {
             @strongify(self)
             switch (btnType) {

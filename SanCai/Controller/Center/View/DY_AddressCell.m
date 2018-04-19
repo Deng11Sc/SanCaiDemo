@@ -47,7 +47,7 @@
 -(void)dy_initSubviews {
     
     UIView *lineView = [[UIView alloc] init];
-    lineView.backgroundColor = DY_CustomColor_F5F4F3;
+    lineView.backgroundColor = CC_CustomColor_F5F4F3;
     [self.baseView addSubview:lineView];
     
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -125,7 +125,7 @@
 -(void)setWinModel:(DY_WinningModel *)winModel {
     _winModel = winModel;
     
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:winModel.goodsImageUrl] placeholderImage:DY_PlaceholderImage];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:winModel.goodsImageUrl] placeholderImage:CC_PlaceholderImage];
     self.titleLabel.text = winModel.goodsName;
     self.descLabel.text = winModel.goodsDes;
     

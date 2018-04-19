@@ -96,7 +96,7 @@
 - (void)setListModel:(DY_ShopListModel *)listModel {
     _listModel = listModel;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:listModel.imageUrl] placeholderImage:DY_PlaceholderImage];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:listModel.imageUrl] placeholderImage:CC_PlaceholderImage];
     
     self.titleLabel.text = listModel.mallGoodsName;
     self.scoresLabel.text = [NSString stringWithFormat:@"%@%@",DYLocalizedString(@"Price:", nil),listModel.priceScores];

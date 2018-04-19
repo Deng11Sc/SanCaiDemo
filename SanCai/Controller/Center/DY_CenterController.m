@@ -73,7 +73,7 @@
 
 -(DY_UserInfoHeaderView *)headerView {
     if (!_headerView) {
-        DY_UserInfoHeaderView *headerView = [[DY_UserInfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, DY_Width, DY_Width*0.618)];
+        DY_UserInfoHeaderView *headerView = [[DY_UserInfoHeaderView alloc] initWithFrame:CGRectMake(0, 0, CC_Width, CC_Width*0.618)];
         @weakify(self)
         headerView.markBlk = ^{
             [[DY_TaskManager manager] increaseScoresByTaskType:@"1" success:^{
@@ -106,14 +106,14 @@
 
 - (UIView *)logoutView {
     if (!_logoutView) {
-        UIView *logoutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, DY_Width, 110)];
+        UIView *logoutView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CC_Width, 110)];
         
         
         UIButton *logoutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         logoutBtn.frame = CGRectMake(logoutView.width/2-110/2, logoutView.height/2-44/2, 110, 44);
         [logoutBtn dy_configure];
         logoutBtn.tag = 1;
-        logoutBtn.backgroundColor = DY_CustomColor_2594D2;
+        logoutBtn.backgroundColor = CC_CustomColor_2594D2;
         [logoutBtn setTitle:DYLocalizedString(@"Sign out", @"退出登录") forState:0];
         [logoutBtn addTarget:self action:@selector(dy_logoutAction:) forControlEvents:UIControlEventTouchUpInside];
         [logoutView addSubview:logoutBtn];
@@ -187,7 +187,7 @@
             break;
         }
     }
-    
+    [self.tableView reloadData];
 }
 
 
@@ -252,7 +252,7 @@
 {
     if (!_centerListView) {
         DY_CenterListView *listView = [[DY_CenterListView alloc] init];
-        listView.frame = CGRectMake(0, 0, DY_Width, Height_centerList);
+        listView.frame = CGRectMake(0, 0, CC_Width, Height_centerList);
         listView.delagate = self;
 //        [self.view addSubview:listView];
 
@@ -316,7 +316,7 @@
 - (void)setIsLandscape:(BOOL)isLandscape {
     [super setIsLandscape:isLandscape];
     
-    _logoutView.frame = CGRectMake(0, 0, DY_Width, 110);
+    _logoutView.frame = CGRectMake(0, 0, CC_Width, 110);
     [_logoutView viewWithTag:1].frame = CGRectMake(_logoutView.width/2-110/2, _logoutView.height/2-44/2, 110, 44);
 
 }

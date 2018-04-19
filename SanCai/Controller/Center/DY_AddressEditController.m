@@ -159,7 +159,7 @@
 
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [DY_LeanCloudNet saveObject:self.addrModel objectId:self.addrModel.objId className:URL_AddressModel relationId:nil success:^(NSMutableArray *array,AVObject *object) {
+    [DY_LeanCloudNet saveObject:self.addrModel objectId:self.addrModel.objId className:URL_AddressModel  numberArr:nil relationId:nil success:^(NSMutableArray *array,AVObject *object) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         if (self.refreshBlk) {

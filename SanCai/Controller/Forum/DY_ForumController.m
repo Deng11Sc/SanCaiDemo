@@ -103,8 +103,8 @@
                 DY_MovieDescModel *model = [[DY_MovieDescModel alloc] initWithDictionary:dic];
                 [headerArr addObject:model];
                 
-                [titles addObject:model.movieName];
-                [imagesURLStrings addObject:model.movieImg];
+                [titles addObject:model.movieName?model.movieName:@""];
+                [imagesURLStrings addObject:model.movieImg?model.movieImg:@""];
             }
             self.dataArray = headerArr;
             [self.tableView reloadData];

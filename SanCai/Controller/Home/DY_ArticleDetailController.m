@@ -131,11 +131,11 @@
 -(UIView *)headerView {
     if (!_headerView) {
         UIView *headerView = [[UIView alloc] init];
-        headerView.frame = CGRectMake(0, 0, DY_Width, 23+50+8);
+        headerView.frame = CGRectMake(0, 0, CC_Width, 23+50+8);
         headerView.backgroundColor = [UIColor whiteColor];
         UILabel *titleLabel = [[UILabel alloc] init];
         
-        titleLabel.frame = CGRectMake(16, 8, DY_Width-32, 50);
+        titleLabel.frame = CGRectMake(16, 8, CC_Width-32, 50);
         titleLabel.textColor = mainColor;
         titleLabel.font = [UIFont systemFontOfSize:18];
         titleLabel.numberOfLines = 2;
@@ -143,8 +143,8 @@
         [headerView addSubview:titleLabel];
         
         UILabel *authorLabel = [[UILabel alloc] init];
-        authorLabel.frame = CGRectMake(16, 8+titleLabel.bottom, DY_Width-32, 15);
-        authorLabel.textColor = DY_CustomColor_595350;
+        authorLabel.frame = CGRectMake(16, 8+titleLabel.bottom, CC_Width-32, 15);
+        authorLabel.textColor = CC_CustomColor_595350;
         authorLabel.font = [UIFont systemFontOfSize:12];
         [headerView addSubview:authorLabel];
         _headerView = headerView;
@@ -172,7 +172,7 @@
             
             titleLabel.text = _movieModel.movieName;
             authorLabel.text = [NSString stringWithFormat:@"%@%@",DYLocalizedString(@"Author/", @"文/"),_movieModel.authorName];
-            [rightImgView sd_setImageWithURL:[NSURL URLWithString:_movieModel.movieImg] placeholderImage:DY_PlaceholderImage];
+            [rightImgView sd_setImageWithURL:[NSURL URLWithString:_movieModel.movieImg] placeholderImage:CC_PlaceholderImage];
         }
         
     }
@@ -182,12 +182,12 @@
 -(UIView *)footerView {
     if (!_footerView) {
         UIView *headerView = [[UIView alloc] init];
-        headerView.frame = CGRectMake(0, 0, DY_Width, 44);
+        headerView.frame = CGRectMake(0, 0, CC_Width, 44);
         headerView.backgroundColor = [UIColor whiteColor];
 
         UIButton *receiveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [receiveBtn dy_configure];
-        receiveBtn.frame = CGRectMake(DY_Width/2-110/2, 4.5, 110, 35);
+        receiveBtn.frame = CGRectMake(CC_Width/2-110/2, 4.5, 110, 35);
         [receiveBtn setTitle:DYLocalizedString(@"Reward", nil) forState:0];
         [receiveBtn addTarget:self action:@selector(dy_rewardAction) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:receiveBtn];
@@ -287,7 +287,7 @@
 
 -(void)dy_rewardScores:(NSInteger)reward {
     
-    [NSString server_saveScoresWithUserId:self.myScoresModel.userId objId:self.myScoresModel.objId changedNumber:-reward];
+    [NSString server_saveScoresWithUserId:self.myScoresModel.userId objId:self.myScoresModel.objId changedNumber:-reward endblk:nil];
     
     [self commentatorIncrementScores:reward];
     [self dy_increaseThisArticleScores:reward];
@@ -297,25 +297,27 @@
 -(void)commentatorIncrementScores:(NSInteger)scores
 {
     
-    AVQuery *query = [AVQuery queryWithClassName:URL_ScoresModel];
-    [query whereKey:@"userId" equalTo:self.filmModel.authorId];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (objects.count > 0) {
-            
-            AVObject *lastObject = [objects firstObject];
-            
-            [NSString server_saveScoresWithUserId:self.filmModel.authorId objId:lastObject.objectId changedNumber:scores];
+    [NSString server_saveScoresWithUserId:self.filmModel.authorId objId:nil changedNumber:scores endblk:nil];
 
-            
-        } else {
-            
-            if (![NSString isEmptyString:self.filmModel.authorId]) {
-                [NSString server_initScoresDataWithUserId:self.filmModel.authorId endblk:^(BOOL isSeccess) {
-                    
-                }];
-            }
-        }
-    }];
+//    AVQuery *query = [AVQuery queryWithClassName:URL_ScoresModel];
+//    [query whereKey:@"userId" equalTo:self.filmModel.authorId];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//        if (objects.count > 0) {
+//            
+//            AVObject *lastObject = [objects firstObject];
+//            
+//            [NSString server_saveScoresWithUserId:self.filmModel.authorId objId:lastObject.objectId changedNumber:scores];
+//
+//            
+//        } else {
+//            
+//            if (![NSString isEmptyString:self.filmModel.authorId]) {
+//                [NSString server_initScoresDataWithUserId:self.filmModel.authorId endblk:^(BOOL isSeccess) {
+//                    
+//                }];
+//            }
+//        }
+//    }];
 
 }
 

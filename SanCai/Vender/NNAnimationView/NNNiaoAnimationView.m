@@ -31,7 +31,7 @@
 
 -(instancetype)init
 {
-    self = [super initWithFrame:DY_KeyWindow.bounds];
+    self = [super initWithFrame:CC_KeyWindow.bounds];
     
     if (self) {
         self.backgroundColor = [UIColor clearColor];
@@ -83,7 +83,7 @@
         
         self.promptLabel.textAlignment = NSTextAlignmentCenter;
         self.promptLabel.font = [UIFont systemFontOfSize:16];
-        self.promptLabel.textColor = DY_CustomColor_3A3534;
+        self.promptLabel.textColor = CC_CustomColor_3A3534;
         
         [background_View addSubview:self.promptLabel];
         
@@ -105,7 +105,7 @@
 {
     showResultAnimation = animation;
     
-    [DY_KeyWindow addSubview:self];
+    [CC_KeyWindow addSubview:self];
 
     self.promptLabel.text = self.mainTitle;
     

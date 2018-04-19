@@ -125,6 +125,7 @@
 +(void)saveObject:(id)model
          objectId:(NSString *)objectId
         className:(NSString *)className
+        numberArr:(NSArray *)arr
        relationId:(NSString *)relationId
           success:(successful)successful
           failure:(failure)faliure
@@ -157,7 +158,12 @@
         if ([key isEqualToString:@"objectId"] || [key isEqualToString:@"updatedAt"] || [key isEqualToString:@"createdAt"] ||[key isEqualToString:@"objId"] || [key isEqualToString:@"taskType"]) {
             continue;
         }
-        [todoFolder setObject:value forKey:key];
+        BOOL isbool = [arr containsObject:key];
+        if (isbool) {
+            [todoFolder setObject:@([value integerValue]) forKey:key];
+        } else {
+            [todoFolder setObject:value forKey:key];
+        }
     }
     free(ivarList);
 

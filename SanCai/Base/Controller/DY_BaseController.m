@@ -44,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = DY_CustomColor_F5F4F3;
+    self.view.backgroundColor = CC_CustomColor_F5F4F3;
     self.navigationController.navigationBar.translucent = NO;    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
@@ -108,8 +108,8 @@
 {
     if (!_tableView)
     {
-        //  CGRectMake(0, 0, DY_Width, DY_Height - NavHeight)
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, DY_Width, DY_Height - NavHeight)
+        //  CGRectMake(0, 0, CC_Width, CC_Height - NavHeight)
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CC_Width, CC_Height - NavHeight)
                                                   style:(self.tableViewIsGrouped ? UITableViewStyleGrouped : UITableViewStylePlain)];
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -142,8 +142,8 @@
 //    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.mas_equalTo(0);
 //        make.left.mas_equalTo(0);
-//        make.width.mas_equalTo(DY_Width);
-//        make.height.mas_equalTo(DY_Height - NavHeight);
+//        make.width.mas_equalTo(CC_Width);
+//        make.height.mas_equalTo(CC_Height - NavHeight);
 //    }];
 }
 
@@ -221,9 +221,9 @@
     
     self.isLandscape = isLandscape;
     if (isLandscape) {
-        self.tableView.frame = CGRectMake(0, 0, DY_Width, DY_Height - NavHeight-20);
+        self.tableView.frame = CGRectMake(0, 0, CC_Width, CC_Height - NavHeight-20);
     }else{
-        self.tableView.frame = CGRectMake(0, 0, DY_Width, DY_Height - NavHeight);
+        self.tableView.frame = CGRectMake(0, 0, CC_Width, CC_Height - NavHeight);
     }
     NSLog(@"%@",NSStringFromSelector(_cmd));
     if (_tableView) {

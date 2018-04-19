@@ -64,7 +64,7 @@
 {
     _listModel = listModel;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:listModel.imageView] placeholderImage:DY_PlaceholderImage];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:listModel.imageView] placeholderImage:CC_PlaceholderImage];
     
     self.titleLabel.text = listModel.title;
 }

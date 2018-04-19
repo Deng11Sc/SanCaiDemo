@@ -41,7 +41,7 @@
     scoresModel.userId = userId;
     scoresModel.scores = @"0";
     
-    [DY_LeanCloudNet saveObject:scoresModel objectId:nil className:URL_ScoresModel relationId:nil success:^(NSMutableArray *array,AVObject *object) {
+    [DY_LeanCloudNet saveObject:scoresModel objectId:nil className:URL_ScoresModel numberArr:@[@"scores"] relationId:nil success:^(NSMutableArray *array,AVObject *object) {
         
         if (endBlk) {
             endBlk(YES);
@@ -57,8 +57,11 @@
     [scoresModel.scores local_saveScores];
 }
 
-+(void)server_saveScoresWithUserId:(NSString *)userId objId:(NSString *)objId changedNumber:(NSInteger)changedNumber
++(void)server_saveScoresWithUserId:(NSString *)userId objId:(NSString *)objId changedNumber:(NSInteger)changedNumber endblk:(void (^)(BOOL isSeccess))endBlk
 {
+    if ([NSString isEmptyString:userId]) {
+        return;
+    }
     
     AVQuery *query = [AVQuery queryWithClassName:URL_ScoresModel];
     [query whereKey:@"userId" equalTo:userId];
@@ -69,38 +72,57 @@
             
             [NSString server_initScoresDataWithUserId:userId endblk:^(BOOL isSeccess) {
                 if (isSeccess) {
-                    [self server_saveScoresWithUserId:userId objId:weakObjId changedNumber:changedNumber];
+                    [self server_saveScoresWithUserId:userId objId:weakObjId changedNumber:changedNumber endblk:endBlk];
+                    [self local_saveScores:@"0"];
+
                 } else {
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self server_saveScoresWithUserId:userId objId:weakObjId changedNumber:changedNumber];
+                        [self server_saveScoresWithUserId:userId objId:weakObjId changedNumber:changedNumber endblk:endBlk];
                     });
                 }
             }];
             
         } else {
             
-            NSDictionary *dic = array.lastObject;
-            if ([NSString isEmptyString:weakObjId]) {
-                weakObjId = dic[@"objId"];
-            }
-            
-            //改变积分
-            AVObject *praiseObject = [AVObject objectWithClassName:URL_ScoresModel objectId:weakObjId];
-            [praiseObject incrementKey:@"scores" byAmount:@(changedNumber)];
-            
-            AVQuery *query = [[AVQuery alloc] init];
-            [query whereKey:@"userId" equalTo:userId];
-            
-            AVSaveOption *option = [[AVSaveOption alloc] init];
-            option.query = query;
-            option.fetchWhenSave = NO;
-            [praiseObject saveInBackgroundWithOption:option block:^(BOOL succeeded, NSError * _Nullable error) {
-                if (succeeded) {
-                    NSLog(@"%@ - 改变积分成功:%ld",NSStringFromSelector(_cmd),changedNumber);
-                } else if (error.code == 305) {
+            if (changedNumber == 0) {
+                //为0时不用改变积分
+                if (endBlk) {
+                    endBlk(YES);
                 }
-            }];
-            
+
+            } else {
+                
+                NSDictionary *dic = array.lastObject;
+                if ([NSString isEmptyString:weakObjId]) {
+                    weakObjId = dic[@"objId"];
+                }
+                
+                //改变积分
+                AVObject *praiseObject = [AVObject objectWithClassName:URL_ScoresModel objectId:weakObjId];
+                [praiseObject incrementKey:@"scores" byAmount:@(changedNumber)];
+                
+                AVQuery *query = [[AVQuery alloc] init];
+                [query whereKey:@"userId" equalTo:userId];
+                
+                AVSaveOption *option = [[AVSaveOption alloc] init];
+                option.query = query;
+                option.fetchWhenSave = NO;
+                [praiseObject saveInBackgroundWithOption:option block:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (succeeded) {
+                        NSLog(@"%@ - 改变积分成功:%ld",NSStringFromSelector(_cmd),changedNumber);
+                        
+                        [self local_saveScores:[NSString stringWithFormat:@"%ld",changedNumber+[[NSString local_getScores] integerValue]]];
+                        
+                        if (endBlk) {
+                            endBlk(YES);
+                        }
+                        
+                    } else if (error.code == 305) {
+                        
+                    }
+                }];
+
+            }
             
         }
         
@@ -132,22 +154,13 @@
             }
 
         } else {
-            [NSString server_initScoresDataWithUserId:userId endblk:^(BOOL isSeccess) {
-                if (isSeccess) {
-                    [self local_saveScores:@"0"];
-                    
-                    DY_ScoresModel *model = [[DY_ScoresModel alloc] init];
-                    model.userId = userId;
-                    model.scores = @"0";
-                    if (blk) {
-                        blk(model);
-                    }
-                } else {
-                    if (blk) {
-                        blk(nil);
-                    }
-                }
-            }];
+            
+            DY_ScoresModel *model = [[DY_ScoresModel alloc] init];
+            model.userId = userId;
+            model.scores = @"0";
+            if (blk) {
+                blk(model);
+            }
         }
         
     } failure:^(DYLeanCloudError error) {

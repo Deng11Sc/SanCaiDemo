@@ -9,10 +9,10 @@
 #ifndef DYHeader_h
 #define DYHeader_h
 
-#define DY_Height CGRectGetHeight([[UIScreen mainScreen] bounds])
-#define DY_Width CGRectGetWidth([[UIScreen mainScreen] bounds])
-#define DY_SCREEN_MIN MIN(DY_Height,DY_Width)
-#define DY_SCREEN_MAX MAX(DY_Height,DY_Width)
+#define CC_Height CGRectGetHeight([[UIScreen mainScreen] bounds])
+#define CC_Width CGRectGetWidth([[UIScreen mainScreen] bounds])
+#define CC_SCREEN_MIN MIN(CC_Height,CC_Width)
+#define CC_SCREEN_MAX MAX(CC_Height,CC_Width)
 
 
 /** 定义版本判定 */

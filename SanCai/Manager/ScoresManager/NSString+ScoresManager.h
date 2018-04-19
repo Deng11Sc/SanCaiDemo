@@ -22,13 +22,13 @@
 +(NSString *)local_getScores;
 
 ///初始化积分数据
-+(void)server_initScoresDataWithUserId:(NSString *)userId endblk:(void (^)(BOOL isSeccess))endBlk;
+//+(void)server_initScoresDataWithUserId:(NSString *)userId endblk:(void (^)(BOOL isSeccess))endBlk;
 
 ///变更积分  正数为增加了，负数为减少了
 /*
  objId可不传，应该
  */
-+(void)server_saveScoresWithUserId:(NSString *)userId objId:(NSString *)objId changedNumber:(NSInteger)changedNumber;
++(void)server_saveScoresWithUserId:(NSString *)userId objId:(NSString *)objId changedNumber:(NSInteger)changedNumber endblk:(void (^)(BOOL isSeccess))endBlk;
 
 ///获取用户的积分
 +(void)server_getScoresModelWithUserId:(NSString *)userId blk:(void (^)(DY_ScoresModel *scoresModel))blk;

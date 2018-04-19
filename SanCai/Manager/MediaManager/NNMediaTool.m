@@ -67,8 +67,8 @@ typedef void (^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 {
     self.videoPath = [NSURL fileURLWithPath:[[NSString tempPath] stringByAppendingPathComponent:@"tempVideo.mp4"]];
     self.imagePath = [NSURL fileURLWithPath:[[NSString tempPath] stringByAppendingPathComponent:@"tempImage.jpg"]];
-    _widthHeightScale = (DY_Height) / DY_Width;
-    _targetSize = CGSizeMake(DY_Width, DY_Height);
+    _widthHeightScale = (CC_Height) / CC_Width;
+    _targetSize = CGSizeMake(CC_Width, CC_Height);
     _isFirstSample = true;
 
     [self defaultConfigure];

@@ -41,7 +41,7 @@
     
     UIImageView *headBtn = [[UIImageView alloc] init];
     [headBtn dy_configure];
-    headBtn.image = DY_Default_Avatar;
+    headBtn.image = CC_Default_Avatar;
     @weakify(self)
     [headBtn addClickedBlock:^(id obj) {
         @strongify(self)
@@ -106,10 +106,10 @@
     _userInfo = userInfo;
     
     if (userInfo) {
-        [self.headBtn sd_setImageWithURL:[NSURL URLWithString:[userInfo.imageUrl getImageCompleteUrl]] placeholderImage:DY_Default_Avatar];
+        [self.headBtn sd_setImageWithURL:[NSURL URLWithString:[userInfo.imageUrl getImageCompleteUrl]] placeholderImage:CC_Default_Avatar];
         self.nameLabel.text = userInfo.nickName;
     } else {
-        self.headBtn.image = DY_Default_Avatar;
+        self.headBtn.image = CC_Default_Avatar;
         self.nameLabel.text = DYLocalizedString(@"Login", @"登陆");
     }
     

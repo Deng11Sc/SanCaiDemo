@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _playerView = [[NNShortPlayerView alloc] initWithFrame:CGRectMake(0, 0, DY_Width,DY_Height)];
+    _playerView = [[NNShortPlayerView alloc] initWithFrame:CGRectMake(0, 0, CC_Width,CC_Height)];
     [self.view addSubview:_playerView];
     if (self.playerItem) {
         _playerView.playerItem = self.playerItem;
